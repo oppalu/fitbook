@@ -1,0 +1,458 @@
+#postcardmanageheight{
+height:81px;
+}
+#searchBlock{
+  margin-left:23%;
+  margin-right:23%;
+  padding-top: 81px;
+}
+
+#postcardmanage{
+  margin-left:20%;
+  margin-right:20%;
+}
+.wholecover{
+  width:35%;
+  position:fixed;
+  max-width:350px;
+  display:inline-block;
+  margin-top:60px;
+}
+#circleOther{
+  display:inline-block;
+  width:25%;
+  margin-left:10%;
+}
+
+#circleMain{
+display:inline-block;
+width:45%;
+margin-left:50px;
+vertical-align:top;
+}
+
+.quanzi{
+  margin-top:100px;
+  color:#5A5A5A;
+  display:inline-block;
+  width:100%;
+}
+.rightcover{
+display:inline-block;
+margin-left:34%;
+width:100%;
+}
+
+.rightwidth{
+  width:55%;
+}
+
+.historydata{
+  width:35%;
+  display:inline-block;
+}
+
+.historydata1{
+  width:35%;
+  display:inline-block;
+  padding-left: 40px;
+}
+
+#posthour{
+float:right;
+font-size:13px;
+color:#939393;
+margin-right:10px;
+margin-top:8px;
+}
+
+.rowheight{
+  height: 750px;
+}
+
+.highrowheight{
+  height: 750px;
+}
+
+.cardheight{
+  height: 550px;
+}
+.shareAndHistory{
+  display:inline;
+  float:right;
+}
+
+#searchTextAndIcon{
+  display: inline-block;
+}
+
+#indexsubintroFirst{
+  width:20%;
+  display:inline-block;
+  float:left;
+  margin-left: 15%;
+}
+
+#indexbg{
+  background-color:#00c1d7;
+  height:500px;
+  vertical-align: top;
+}
+#indexbgblock1{
+  width:50%;
+  display:inline-block;
+  float:left
+}
+#indexbgbigicon{
+  width:250px;
+  margin-left:20%;
+  margin-top:50px
+}
+#indexintro{
+  color:white;
+  margin-left:21%;
+  margin-top:0;
+  font-size:20px;
+}
+#indexbgpicdiv{
+  width:40%;
+  display:inline-block;
+  float:left
+}
+
+
+
+#indexbgpic{
+  height:500px;
+  padding-left:15%
+}
+
+#indexsubtitle{
+  font-size:55px;
+  margin-top:100px;
+  text-align:center;
+}
+
+#AButton{
+  margin-left:21%;
+  margin-top:25px
+}
+
+.indexsubintro{
+  width:20%;
+  display:inline-block;
+  float:left
+}
+.indexsubtext{
+  margin-top:15px
+}
+
+#indexsubblock{
+  height:300px;
+  vertical-align:top;
+  margin-top:70px
+}
+
+
+.myfootbar{
+  height:80px;
+  background-color:#eeeeee;
+}
+
+
+#mylink{
+  float:right;
+  margin-top:20px;
+  cursor:pointer;
+}
+
+#pic{
+
+  height: 200px;
+  color: white;
+  vertical-align: middle;
+}
+#footblueicon{
+  margin-left:20px;
+  margin-top:5px
+}
+
+
+#drawerid{
+  margin-left:32px;
+  margin-top: 4px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+
+.centercircle{
+  height: 220px;
+ width: 220px;
+ /*margin: 20px;*/
+text-align: center;
+margin-left: 33%;
+
+}
+
+
+.wordsincircle{
+  margin-top: 32%;
+  font-size: 30px;
+}
+
+
+.wordsincirclesub{
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+
+#cover{
+  background-image: url(../assets/cover.jpg);
+  height: 200px;
+}
+
+
+#belowcover{
+  background-color: #FFA400;
+  height: 1000px;
+  color: white;
+}
+
+#avatarcover{
+  z-index: 999;
+  position: absolute;
+  margin-left: 25px;
+  margin-top: 170px;
+}
+
+
+.statspaper{
+  height: 300px;
+  width: 250px;
+  margin-bottom: 25px;
+}
+#fixedbutton {
+    position: fixed;
+    bottom:50px;
+   right: 50px;
+}
+
+#coverforgroup{
+  background-image: url(../assets/coverforgroup.jpg);
+  height: 200px;
+}
+
+
+#belowcoverforgroup{
+  background-color: #796333;
+  height: 1000px;
+  color: white;
+}
+
+.groupintro{
+  font-size: 15px;
+  color: white;
+  margin-left: 20px;
+  width: 70%;
+  margin-top: 20px;
+  font-weight: 600;
+  padding-bottom: 50px;
+}
+
+.generalpaper{
+  height: 187px;
+  width: 170px;
+  margin-top: 20px;
+}
+
+#coverforaty{
+  background-image: url(../assets/coverforaty.jpg);
+  height: 200px;
+}
+
+#belowcoverforaty{
+  background-color: #5186bc;
+  height: 1000px;
+  color: white;
+}
+
+.groupintrosub{
+  font-size: 15px;
+  color: white;
+  margin-left: 20px;
+  width: 70%;
+  margin-top: 5px;
+  font-weight: 600;
+  padding-bottom: 10px;
+}
+
+
+@media screen and (max-width:690px){
+    #indexbgpic{
+       display: none;
+    }
+    #baricon{
+       display: none;
+    }
+    .indexsubintro{
+      width:100%;
+      display:block;
+      text-align: center;
+      margin-top: 60px;
+    }
+    #indexsubintroFirst{
+      width:100%;
+      display:block;
+      text-align: center;
+      margin-top: 5px;
+      margin-left: 0;
+    }
+
+
+    #indexsubblock{
+      margin-top:40px;
+      height:900px;
+    }
+    #indexsubtitle{
+      font-size:40px;
+      margin-top:50px;
+      text-align:center;
+    }
+    #indexintro{
+      color:white;
+      margin-left:22%;
+      margin-top:0;
+      font-size:20px;
+      width: 60%;
+      margin-top: 50px;
+      text-align: center;
+    }
+    #indexbgbigicon{
+      width:250px;
+      margin-left:18%;
+      margin-top:50px;
+    }
+    #indexbgblock1{
+      display:block;
+      width: 100%;
+    }
+    #AButton{
+      margin-left:18%;
+      margin-top:55px
+    }
+    #appdrawerIcon{
+      display: none;
+    }
+    #searchTextAndIcon{
+      display: block;
+    }
+    .swipeheadHome{
+      margin-top: 40px;
+    }
+    .centercircle{
+      height: 220px;
+     width: 220px;
+     /*margin: 20px;*/
+    text-align: center;
+    margin-left: 15%;
+
+    }
+    .shareAndHistory{
+      display:inline;
+      float:left;
+    }
+    .rowheight{
+      height: 1000px;
+    }
+
+    .cardheight{
+      height: 680px;
+    }
+    #posthour{
+    float:right;
+    font-size:13px;
+    color:#939393;
+    margin-right:10px;
+    margin-top:8px;
+    }
+    .highrowheight{
+      height: 1300px;
+    }
+    .historydata{
+      width:100%;
+      display:block;
+      padding-left: 40px;
+    }
+
+    .historydata1{
+      width:100%;
+      display:inline-block;
+      padding-left: 40px;
+    }
+    .wholecover{
+      width:100%;
+      position:relative;;
+      max-width:1050px;
+      display:inline-block;
+      margin-top:100px;
+    }
+    #belowcover{
+      background-color: #FFA400;
+      height:400px;
+      color: white;
+    }
+    .rightcover{
+    display:inline-block;
+    margin-left:15%;
+    width:100%;
+    height:500px;
+    }
+    .rightwidth{
+      width:75%;
+    }
+    .quanzi{
+      margin-top:30px;
+      color:#5A5A5A;
+      display:inline-block;
+      width:100%;
+    }
+    #belowcoverforgroup{
+      background-color: #796333;
+      height: 300px;
+      color: white;
+    }
+    #belowcoverforaty{
+      background-color: #5186bc;
+      height: 500px;
+      color: white;
+    }
+    #circleOther{
+      display:inline-block;
+      width:25%;
+      margin-left:10%;
+      display: none;
+    }
+    #circleMain{
+    display:inline-block;
+    width:95%;
+    margin-left:8px;
+    vertical-align:top;
+    margin-top: 30px;
+    }
+    #postcardmanage{
+      margin-left:3%;
+      margin-right:3%;
+    }
+    #postcardmanageheight{
+      height:121px;
+    }
+
+    #searchBlock{
+      margin-left:10%;
+      margin-right:10%;
+      padding-top: 121px;
+    }
+
+}
