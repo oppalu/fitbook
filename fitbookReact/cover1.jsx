@@ -392,19 +392,9 @@ const Cover = React.createClass({
 
       <div style={{width: '73%'}}>
           <div id="avatarcover">
-            <Avatar onTouchTap={this.handleAvatarOpen} src={this.state.avatarlink} size={50} style={{border:'1px solid white'}}/>
+            <Avatar src={this.state.avatarlink} size={50} style={{border:'1px solid white'}}/>
           </div>
-          <div id="cover" onTouchTap={this.handleCoverOpen} style={{backgroundImage: this.state.coverlink}}>
-            {/*<IconMenu*/}
-                {/*iconButtonElement={<IconButton><MoreVertIcon color={'white'}/></IconButton>}*/}
-                {/*anchorOrigin={{horizontal: 'right', vertical: 'top'}}*/}
-                {/*targetOrigin={{horizontal: 'right', vertical: 'top'}}*/}
-                {/*style={{float:'right',display:this.state.changedisplay}}*/}
-            {/*>*/}
-              {/*<MenuItem primaryText="修改个人资料" onTouchTap={this.handleModify}/>*/}
-              {/*<MenuItem primaryText="修改头像" onTouchTap={this.handleAvatarOpen}/>*/}
-              {/*<MenuItem primaryText="修改封面" onTouchTap={this.handleCoverOpen}/>*/}
-            {/*</IconMenu>*/}
+          <div id="cover" style={{backgroundImage: this.state.coverlink}}>
           </div>
 
           <div id="belowcover" style={{backgroundColor:this.state.maincolor}}>
@@ -420,8 +410,6 @@ const Cover = React.createClass({
 
             <List>
                 <ListItem style={{color: '#ffffff'}} leftIcon={<ModifyIcon color={grey50}/>} primaryText="修改个人资料" onTouchTap={this.handleModify}/>
-                <ListItem style={{color: '#ffffff'}} leftIcon={<PhotoIcon color={grey50}/>} primaryText="修改头像" onTouchTap={this.handleAvatarOpen}/>
-                <ListItem style={{color: '#ffffff'}} leftIcon={<PicIcon color={grey50}/>} primaryText="修改封面" onTouchTap={this.handleCoverOpen}/>
             </List>
 
             <RaisedButton
@@ -454,16 +442,20 @@ const Cover = React.createClass({
             onRequestClose={this.handleModifyClose}
             contentStyle={{maxWidth: '350px'}}
           >
-            <TextField ref="infoname" floatingLabelText="用户名"/><br/>
-            <span>性别 &nbsp;</span>
-            <DropDownMenu value={this.state.isMale}  onChange={this.handleMaleChange}>
-                <MenuItem value={1} primaryText="男" />
-                <MenuItem value={2} primaryText="女" />
-            </DropDownMenu><br/>
+              <div id="avatarcover">
+                  <Avatar onTouchTap={this.handleAvatarOpen} src={this.state.avatarlink} size={50} style={{border:'1px solid white'}}/>
+              </div>
+              <div id="cover" onTouchTap={this.handleCoverOpen} style={{backgroundImage: this.state.coverlink}}/>
+               <TextField ref="infoname" floatingLabelText="用户名"/><br/>
+              <span>性别 &nbsp;</span>
+              <DropDownMenu value={this.state.isMale}  onChange={this.handleMaleChange}>
+                  <MenuItem value={1} primaryText="男" />
+                  <MenuItem value={2} primaryText="女" />
+              </DropDownMenu><br/>
 
-            <TextField ref="infoage" floatingLabelText="年龄"/>
+              <TextField ref="infoage" floatingLabelText="年龄"/>
 
-            <div style={{height:'15px'}}>{this.state.infoerrormsg}</div>
+              <div style={{height:'15px'}}>{this.state.infoerrormsg}</div>
 
           </Dialog>
 
