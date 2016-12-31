@@ -392,9 +392,9 @@ const Cover = React.createClass({
 
       <div style={{width: '73%'}}>
           <div id="avatarcover">
-            <Avatar onTouchTap={this.handleAvatarOpen} src={this.state.avatarlink} size={50} style={{border:'1px solid white'}}/>
+            <Avatar src={this.state.avatarlink} size={50} style={{border:'1px solid white'}}/>
           </div>
-          <div id="cover" onTouchTap={this.handleCoverOpen} style={{backgroundImage: this.state.coverlink}}>
+          <div id="cover" style={{backgroundImage: this.state.coverlink}}>
             {/*<IconMenu*/}
                 {/*iconButtonElement={<IconButton><MoreVertIcon color={'white'}/></IconButton>}*/}
                 {/*anchorOrigin={{horizontal: 'right', vertical: 'top'}}*/}

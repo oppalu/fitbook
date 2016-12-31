@@ -17,7 +17,7 @@ import SendIcon from 'material-ui/svg-icons/content/send';
 import PhotoIcon from 'material-ui/svg-icons/image/add-a-photo';
 import PicIcon from 'material-ui/svg-icons/image/photo-album';
 import ModifyIcon from 'material-ui/svg-icons/editor/mode-edit';
-import {white,grey50} from 'material-ui/styles/colors';
+import {white,grey50,grey700} from 'material-ui/styles/colors';
 
 function isInteger(str) {
   if(/^\d+$/.test(str))
@@ -442,10 +442,21 @@ const Cover = React.createClass({
             onRequestClose={this.handleModifyClose}
             contentStyle={{maxWidth: '350px'}}
           >
+
               <div id="avatarcover">
-                  <Avatar onTouchTap={this.handleAvatarOpen} src={this.state.avatarlink} size={50} style={{border:'1px solid white'}}/>
+                  <FlatButton
+                      icon={ <Avatar src={this.state.avatarlink} size={50} /> }
+                      style={{height:'100%',color:'white',marginTop:'-20px'}}
+                      hoverColor="#00"
+                      rippleColor="#00"
+                      onTouchTap={this.handleAvatarOpen}
+                  />
               </div>
-              <div id="cover" onTouchTap={this.handleCoverOpen} style={{backgroundImage: this.state.coverlink}}/>
+              <div id="cover" style={{backgroundImage: this.state.coverlink}}>
+                  <IconButton iconStyle={{color: 'grey700'}} onTouchTap={this.handleCoverOpen} tooltip="修改封面" tooltipPosition="bottom-right">
+                      <PhotoIcon />
+                  </IconButton>
+              </div>
                <TextField ref="infoname" floatingLabelText="用户名"/><br/>
               <span>性别 &nbsp;</span>
               <DropDownMenu value={this.state.isMale}  onChange={this.handleMaleChange}>

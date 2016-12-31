@@ -10,7 +10,7 @@ import { Link } from 'react-router';
 
 import Avatar from 'material-ui/Avatar';
 
-import Cover from './cover.jsx';
+import Cover from './cover1.jsx';
 import CoverRight from './coverright.jsx';
 import AandD from './appbaranddrawer.jsx';
 
