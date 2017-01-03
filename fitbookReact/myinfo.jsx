@@ -8,7 +8,7 @@ import {List, ListItem} from 'material-ui/List';
 
 import Avatar from 'material-ui/Avatar';
 
-import Cover from './cover1.jsx';
+import Cover from './cover.jsx';
 import CoverRight from './coverright.jsx';
 import AandD from './appbaranddrawer.jsx';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
