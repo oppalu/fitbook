@@ -444,13 +444,15 @@ const Cover = React.createClass({
                 >
 
                     <div id="avatarcover">
-                        <FlatButton
-                            icon={ <Avatar src={this.state.avatarlink} size={50} /> }
-                            style={{height:'100%',color:'white',marginTop:'-20px'}}
-                            hoverColor="#00"
-                            rippleColor="#00"
+                        <Avatar src={this.state.avatarlink} size={50} />
+                        <IconButton
+                            style={{marginLeft: '-50px'}}
+                            iconStyle={{color: 'white'}}
                             onTouchTap={this.handleAvatarOpen}
-                        />
+                            tooltip="修改头像"
+                            tooltipPosition="bottom-right">
+                            <PhotoIcon />
+                        </IconButton>
                     </div>
                     <div id="cover" style={{backgroundImage: this.state.coverlink}}>
                         <IconButton iconStyle={{color: 'grey700'}} onTouchTap={this.handleCoverOpen} tooltip="修改封面" tooltipPosition="bottom-right">
