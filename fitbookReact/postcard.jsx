@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card,CardHeader,CardText,CardActions} from 'material-ui/Card';
+import {Card,CardHeader,CardMedia,CardText,CardActions} from 'material-ui/Card';
 import {List, ListItem} from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
@@ -10,7 +10,10 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
-
+import UpIcon from 'material-ui/svg-icons/action/thumb-up';
+import CommentIcon from 'material-ui/svg-icons/communication/comment';
+import {grey300,grey400} from 'material-ui/styles/colors';
+import Divider from 'material-ui/Divider';
 
 const PostCard = React.createClass({
 
@@ -158,32 +161,47 @@ const PostCard = React.createClass({
           style={{cursor:'pointer'}}
           titleStyle={{fontWeight:'600',marginTop:'12%'}}
         >
-
-
-        <span style={{float:'right',fontSize:'13px',color:'#ff0079',marginTop:'8px',display:displaystate}} onTouchTap={this.handleDelDiaOpen}>删除</span>
-
-        <span id="posthour">{this.state.timesection}</span>
-
+          <span style={{float:'right',fontSize:'13px',color:'#ff0079',marginTop:'8px',display:displaystate}} onTouchTap={this.handleDelDiaOpen}>删除</span>
+          <span style={{fontSize:'13px'}} id="posthour">{this.state.timesection}</span>
         </CardHeader>
 
-        <CardText style={{height:'100px'}}>
+        <CardText style={{marginTop: '-3%'}}>
           {this.state.content}
-       </CardText>
+        </CardText>
 
-       <CardActions>
+        <CardMedia>
+          <img src="assets/cover.jpg"/>
+        </CardMedia>
 
-       <FloatingActionButton mini={true} zDepth={1} style={{marginLeft:'10px',marginBottom:'10px'}} backgroundColor={this.state.likebg} onTouchTap={this.handleLike}>
-          <span>+{this.state.likenum}</span>
-        </FloatingActionButton>
+        <CardActions>
+          <span
+              style={{marginLeft:5}}>
+            <IconButton
+                iconStyle={{color: this.state.likebg,width:20,height:20}}
+                onTouchTap={this.handleLike}
+                tooltip="点赞"
+                tooltipPosition="bottom-right">
+              <UpIcon/>
+            </IconButton>
+            <span>{this.state.likenum}赞</span>
+          </span>
+          <span
+              style={{marginLeft:20}}>
+            <FloatingActionButton
+                style={{marginRight:10}}
+                backgroundColor={grey400}
+                mini={true}>
+              <CommentIcon/>
+            </FloatingActionButton>
+            <span>2评论</span>
+          </span>
+          <div style={{display:'inline-block',float:'right',marginTop:'5px'}}>
+            <img src={this.state.sporttypeurl} height={30} width={30} style={{display:this.state.icondisplay}}/>
+            <span style={{fontSize:'20px',color:'#00c1d7',paddingLeft:'15px',verticalAlign:'40%',display:this.state.icondisplay}}>{this.state.sportdata}</span>
+          </div>
+        </CardActions>
 
-        <div style={{display:'inline-block',float:'right',marginTop:'5px',marginBottom:'10px'}}>
-        <img src={this.state.sporttypeurl} height={30} width={30} style={{display:this.state.icondisplay}}/>
-        <span style={{fontSize:'20px',color:'#00c1d7',paddingLeft:'15px',verticalAlign:'40%',display:this.state.icondisplay}}>{this.state.sportdata}</span>
-        </div>
-       </CardActions>
-
-
-
+        
       </Card>
 
 
