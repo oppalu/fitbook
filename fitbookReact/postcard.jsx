@@ -2,17 +2,15 @@ import React from 'react';
 import {Card,CardHeader,CardMedia,CardText,CardActions} from 'material-ui/Card';
 import {List, ListItem} from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import LikeIcon from 'material-ui/svg-icons/image/exposure-plus-1';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import UpIcon from 'material-ui/svg-icons/action/thumb-up';
 import CommentIcon from 'material-ui/svg-icons/communication/comment';
 import {grey300,grey400} from 'material-ui/styles/colors';
+import TextField from 'material-ui/TextField';
 import Divider from 'material-ui/Divider';
 
 const PostCard = React.createClass({
@@ -78,17 +76,20 @@ const PostCard = React.createClass({
     xmlHttp.open("GET",url,true);
     xmlHttp.send();
 
-
-
-
-
-
   },
   handleDelDiaOpen(){
     this.setState({isDelDiaShow:true});
   },
   handleDelDiaClose(){
     this.setState({isDelDiaShow:false});
+  },
+  handleExpand(){
+    if(this.state.expanded == true) {
+        this.setState({expanded:false});
+    } else {
+        this.setState({expanded:true});
+    }
+
   },
   componentDidMount: function() {
       if(this.state.sporttypeurl=="null"){
@@ -154,7 +155,7 @@ const PostCard = React.createClass({
     return (
 
       <div style={{marginTop:'25px',display:this.state.isDeleted}}>
-      <Card>
+      <Card expanded={this.state.expanded}>
         <CardHeader
           title={this.state.username}
           avatar={this.state.avatarlink}
@@ -187,35 +188,58 @@ const PostCard = React.createClass({
           </span>
           <span
               style={{marginLeft:20}}>
-            <FloatingActionButton
-                style={{marginRight:10}}
-                backgroundColor={grey400}
-                mini={true}>
+            <IconButton
+                iconStyle={{color: grey400,width:20,height:20}}
+                onTouchTap={this.handleExpand}>
               <CommentIcon/>
-            </FloatingActionButton>
+            </IconButton>
             <span>2评论</span>
           </span>
           <div style={{display:'inline-block',float:'right',marginTop:'5px'}}>
             <img src={this.state.sporttypeurl} height={30} width={30} style={{display:this.state.icondisplay}}/>
-            <span style={{fontSize:'20px',color:'#00c1d7',paddingLeft:'15px',verticalAlign:'40%',display:this.state.icondisplay}}>{this.state.sportdata}</span>
+            <span style={{fontSize:'18px',color:'#00c1d7',paddingLeft:'15px',verticalAlign:'40%',display:this.state.icondisplay}}>{this.state.sportdata}</span>
           </div>
-        </CardActions>
+        </CardActions><Divider/>
 
-        
+        <CardMedia expandable={true}>
+          <List>
+            <ListItem
+                leftAvatar={<Avatar src="assets/avatar/2.jpeg" />}
+                primaryText="Test"
+                secondaryText={
+                  <p>
+                    <span style={{color: darkBlack}}>2017-01-21</span><br/>
+                    厉害了加油
+                  </p>
+                }
+                secondaryTextLines={2}
+            />
+            <Divider inset={true} />
+            <ListItem
+                leftAvatar={<Avatar src="assets/avatar/1.jpeg" />}
+                primaryText="Test"
+                secondaryText={
+                  <p>
+                    <span style={{color: darkBlack}}>2017-01-21</span><br/>
+                    厉害了加油
+                  </p>
+                }
+                secondaryTextLines={2}
+            />
+          </List>
+        </CardMedia>
+
       </Card>
 
 
-      <Dialog
+        <Dialog
           title="删除?"
           actions={delactions}
           modal={true}
           open={this.state.isDelDiaShow}
           contentStyle={{width:'100%'}}
       ></Dialog>
-
-
-
-        </div>
+      </div>
     );
   }
 });

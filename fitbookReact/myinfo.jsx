@@ -364,7 +364,6 @@ const MyInfo = React.createClass({
       <div>
       <div id="fixedbutton" style={{display:this.state.circledisplayinfo}}>
 
-
       <IconMenu
             iconButtonElement={<FloatingActionButton>
               <ContentAdd />
