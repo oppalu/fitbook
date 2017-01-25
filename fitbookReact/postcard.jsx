@@ -9,7 +9,8 @@ import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import UpIcon from 'material-ui/svg-icons/action/thumb-up';
 import CommentIcon from 'material-ui/svg-icons/communication/comment';
-import {grey300,grey400} from 'material-ui/styles/colors';
+import {darkBlack,grey300,grey400} from 'material-ui/styles/colors';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import TextField from 'material-ui/TextField';
 import Divider from 'material-ui/Divider';
 
@@ -152,6 +153,17 @@ const PostCard = React.createClass({
       />,
     ];
 
+    const rightIconMenu = (
+        <IconMenu
+            iconButtonElement={<IconButton><MoreVertIcon/></IconButton>}
+            anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+            targetOrigin={{horizontal: 'left', vertical: 'top'}}
+        >
+          <MenuItem primaryText="点赞" />
+          <MenuItem primaryText="回复" />
+        </IconMenu>
+    );
+
     return (
 
       <div style={{marginTop:'25px',display:this.state.isDeleted}}>
@@ -190,7 +202,9 @@ const PostCard = React.createClass({
               style={{marginLeft:20}}>
             <IconButton
                 iconStyle={{color: grey400,width:20,height:20}}
-                onTouchTap={this.handleExpand}>
+                onTouchTap={this.handleExpand}
+                tooltip="查看评论"
+                tooltipPosition="bottom-right">
               <CommentIcon/>
             </IconButton>
             <span>2评论</span>
@@ -201,11 +215,25 @@ const PostCard = React.createClass({
           </div>
         </CardActions><Divider/>
 
+        <CardMedia>
+          <div style={{margin:15}}>
+            <Avatar src="assets/avatar/1.jpeg" />
+            <TextField
+                style={{paddingLeft:15}}
+                hintText="发表评论..."
+            />
+            <FlatButton label="发布"/>
+          </div>
+        </CardMedia>
+
+        <Divider/>
+
         <CardMedia expandable={true}>
           <List>
             <ListItem
-                leftAvatar={<Avatar src="assets/avatar/2.jpeg" />}
+                leftAvatar={<Avatar src="assets/avatar/1.jpeg" />}
                 primaryText="Test"
+                rightIconButton={rightIconMenu}
                 secondaryText={
                   <p>
                     <span style={{color: darkBlack}}>2017-01-21</span><br/>
@@ -216,8 +244,9 @@ const PostCard = React.createClass({
             />
             <Divider inset={true} />
             <ListItem
-                leftAvatar={<Avatar src="assets/avatar/1.jpeg" />}
-                primaryText="Test"
+                leftAvatar={<Avatar src="assets/avatar/2.jpeg" />}
+                primaryText="Test2"
+                rightIconButton={rightIconMenu}
                 secondaryText={
                   <p>
                     <span style={{color: darkBlack}}>2017-01-21</span><br/>
