@@ -36,7 +36,7 @@ getInitialState(){
     ];
     return (
     <div>
-      <RaisedButton label="立即注册" secondary={true} style={{width:"250px"}} onTouchTap={this.handleOpen}/>
+      <RaisedButton label="加入我们" secondary={true} style={{width:"250px"}} onTouchTap={this.handleOpen}/>
 
       <Dialog
           title="注册"

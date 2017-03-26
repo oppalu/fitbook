@@ -26,6 +26,8 @@ import MenuItem from 'material-ui/MenuItem';
 import MoneyIcon from 'material-ui/svg-icons/editor/attach-money';
 import PostIcon from 'material-ui/svg-icons/social/share';
 import Snackbar from 'material-ui/Snackbar';
+import Nav from './Navgation.jsx';
+
 
 const AandD = React.createClass({
   getInitialState(){
@@ -43,6 +45,7 @@ const AandD = React.createClass({
 
             uploadfilename:"",
             isSnackerOpen:false,
+            isSwiped:false,
 
 
         }
@@ -64,7 +67,15 @@ const AandD = React.createClass({
 
 
     handleOpen() {
-    this.setState({isDrawerPulled: true});
+
+      if(this.state.isSwiped==false){
+        this.setState({isSwiped: true});
+        swipeout(0,this.props.id);
+      }else{
+        this.setState({isSwiped: false});
+        swipeout(1,this.props.id);
+      }
+    // this.setState({isDrawerPulled: true});
     },
     addloadfile(){
       var file=document.getElementById("inputfile").value;
@@ -98,6 +109,9 @@ const AandD = React.createClass({
     },
     popupload(){
       document.getElementById('inputfile').click();
+    },
+    dotitle(){
+      window.location.href="http://localhost:8080/#/about";
     },
 
 
@@ -202,10 +216,14 @@ const AandD = React.createClass({
 
     return (
         <div>
-        <Drawer open={this.state.isDrawerPulled} onRequestChange={this.handleClose} docked={false}>
+        <Drawer open={this.state.isDrawerPulled} onRequestChange={this.handleClose} docked={true}
+        zDepth={0}
+        containerStyle={{backgroundColor:'filter:alpha(opacity=50)'}}
+        >
 
+        <div style={{height:"71px"}}></div>
 
-          <div id="pic" style={{backgroundImage: this.state.coverurl}}>
+          <div id="pic" style={{backgroundImage: this.state.coverurl,display:'none'}}>
 
           <FlatButton
           icon={ <Avatar src={this.state.avatarurl} size={55} /> }
@@ -220,9 +238,9 @@ const AandD = React.createClass({
 
 
           <List>
-           <ListItem primaryText={this.state.level} leftIcon={<LevelIcon/>} />
-           <ListItem primaryText={this.state.exp} leftIcon={<MoneyIcon/>} />
-           <Divider/>
+           <ListItem primaryText={this.state.level} leftIcon={<LevelIcon/>} style={{display:'none'}}/>
+           <ListItem primaryText={this.state.exp} leftIcon={<MoneyIcon/>} style={{display:'none'}}/>
+           <Divider style={{display:'none'}}/>
           </List>
 
 
@@ -238,20 +256,23 @@ const AandD = React.createClass({
 
 
         <List style={{position:'fixed',bottom:'0',width:'100%'}}>
-        <Link to="/" style={{ textDecoration: 'none' }}><ListItem primaryText="退出登录"leftIcon={<ExitIcon/>}/></Link>
+        <Link to="/" style={{ textDecoration: 'none' ,display:'none'}}><ListItem primaryText="退出登录"leftIcon={<ExitIcon/>}/></Link>
         </List>
 
         </Drawer>
         <AppBar
-        title={<img  id="appdrawerIcon" src="assets/icon.png" />}
-        iconClassNameRight="muidocs-icon-navigation-expand-more"
+
+        iconElementLeft={<Nav id={this.props.id}/>}
         iconElementRight={<CTopBtn/>}
-        titleStyle={{cursor: 'pointer'}}
-        onLeftIconButtonTouchTap={this.handleOpen}
+
         style={{position:'fixed'}}
+        onTitleTouchTap={this.dotitle}
+
+
 
         zDepth={0}
         />
+
 
 
         <Dialog

@@ -3,10 +3,6 @@ import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import AccountIcon from 'material-ui/svg-icons/action/account-circle';
 import TextField from 'material-ui/TextField';
-import {List, ListItem} from 'material-ui/List';
-
-
-import Avatar from 'material-ui/Avatar';
 
 import Cover from './cover.jsx';
 import CoverRight from './coverright.jsx';
@@ -51,7 +47,6 @@ const MyInfo = React.createClass({
       atyerrormsg:"",
       maxexp:0,
 
-
     }
   },
   handleChangeChallenge(){
@@ -60,7 +55,6 @@ const MyInfo = React.createClass({
     }else{
       this.setState({isatychallenge: false});
     }
-
   },
   handleNewChallengeOpen(){
     this.setState({isNewChallengeOpen: true});
@@ -101,6 +95,8 @@ const MyInfo = React.createClass({
       var stddate=this.formatTime(date);
       this.setState({endtime: stddate});
   },
+
+
   formatTime(strdate){
 
   var date=new Date(strdate);
@@ -364,6 +360,7 @@ const MyInfo = React.createClass({
       <div>
       <div id="fixedbutton" style={{display:this.state.circledisplayinfo}}>
 
+
       <IconMenu
             iconButtonElement={<FloatingActionButton>
               <ContentAdd />
@@ -377,12 +374,12 @@ const MyInfo = React.createClass({
           </IconMenu>
 
       </div>
-          <AandD />
+          <AandD id="2" />
 
 <div className="wholecover" >
-         <Cover username={this.state.username}/>
+         <Cover id="left" username={this.state.username}/>
 </div>
-<div className="rightcover">
+<div id="right" className="rightcover">
          <CoverRight username={this.state.username}/>
 </div>
 

@@ -6,6 +6,8 @@ import SleepStats from './sleepstats.jsx';
 import WalkStats from './walkstats.jsx';
 import RunStats from './runstats.jsx';
 import RideStats from './ridestats.jsx';
+import MyDrawer from './mydrawer.jsx';
+
 
 const Stat = React.createClass({
   getInitialState(){
@@ -22,8 +24,11 @@ const Stat = React.createClass({
 
     return (
         <div>
-        <AandD />
-        <div style={{height:'61px'}}></div>
+        <AandD id="3"/>
+        <div style={{height:'81px'}}></div>
+
+
+
 
        <Tabs className="swipeheadHome" inkBarStyle={{backgroundColor:'#FFEB3B'}} onChange={this.handleTabs} value={this.state.slideIndex}>
         <Tab label="睡眠" value={0}>
@@ -44,10 +49,12 @@ const Stat = React.createClass({
               onChangeIndex={this.handleTabs}
             >
 
+
             <SleepStats />
             <WalkStats />
             <RunStats/>
             <RideStats/>
+
 
     </SwipeableViews>
 

@@ -197,26 +197,27 @@ const MyAwesomeReactComponent = React.createClass({
 
 
 
-      <Drawer open={this.state.isDrawerPulled} onRequestChange={this.handleClose} docked={false}>
-        <div style={{borderBottom:'1px solid #c0c0c0'}} ><img src="assets/iconblue.png"/></div>
-        <AccountIcon color={"#9e9e9e"} style={iconStyles}/>
-        <p style={{marginTop:"0",marginLeft:"33%",marginBottom:"0"}}>还没有登录?</p>
+      {/*<Drawer open={this.state.isDrawerPulled} onRequestChange={this.handleClose} docked={false}>*/}
+        {/*<div style={{borderBottom:'1px solid #c0c0c0'}} ><img src="assets/iconblue.png"/></div>*/}
+        {/*<AccountIcon color={"#9e9e9e"} style={iconStyles}/>*/}
+        {/*<p style={{marginTop:"0",marginLeft:"33%",marginBottom:"0"}}>还没有登录?</p>*/}
 
 
 
-        <FlatButton label="登录" primary={true} style={{marginLeft:"15%"}} onTouchTap={this.handleLoginOpen}/>
-        <FlatButton label="注册" secondary={true} onTouchTap={this.handleRegOpen}/>
+        {/*<FlatButton label="登录" primary={true} style={{marginLeft:"15%"}} onTouchTap={this.handleLoginOpen}/>*/}
+        {/*<FlatButton label="注册" secondary={true} onTouchTap={this.handleRegOpen}/>*/}
 
 
 
 
-      </Drawer>
+      {/*</Drawer>*/}
       <AppBar
-     title={<img id="baricon" src="assets/icon.png" />}
+     title={<div />}
      iconClassNameRight="muidocs-icon-navigation-expand-more"
      iconElementRight={<TopBtn/>}
      onTitleTouchTap={onClickIcon}
      titleStyle={{cursor: 'pointer'}}
+     iconElementLeft={<img id="baricon" src="assets/icon.png" />}
      onLeftIconButtonTouchTap={this.handleOpen}
 
      zDepth={0}

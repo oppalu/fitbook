@@ -20,13 +20,38 @@ import RideTab from './rideTab.jsx';
 import Avatar from 'material-ui/Avatar';
 import AandD from './appbaranddrawer.jsx';
 
+import Divider from 'material-ui/Divider';
+import LevelIcon from 'material-ui/svg-icons/action/grade';
+import MoneyIcon from 'material-ui/svg-icons/editor/attach-money';
+
+import MyDrawer from './mydrawer.jsx';
+
+import IndexSleepCard from './indexSleepCard.jsx';
+
+import IndexWalkCard from './indexWalkCard.jsx';
+
+import IndexRunCard from './indexRunCard.jsx';
+
+import IndexRideCard from './indexRideCard.jsx';
+
+import RankIcon from 'material-ui/svg-icons/editor/format-list-numbered';
+
+import HotIcon from 'material-ui/svg-icons/social/whatshot';
+
+import RankTab from './rankTab.jsx';
+
+import Paper from 'material-ui/Paper';
+
 
 
 const MainContent = React.createClass({
   getInitialState(){
+
         return {
             btntext:"null",
             slideIndex: 0,
+            isSwiped:false,
+            username:"",
         }
     },
 
@@ -39,6 +64,8 @@ const MainContent = React.createClass({
       }
       var url="http://127.0.0.1/addsession.php?ssid=";
       url+=ssholder.getsession();
+
+
       var that=this;
       xmlHttp.onreadystatechange=function(){
         // that.setState({btntext: xmlHttp.responseText});
@@ -55,46 +82,87 @@ const MainContent = React.createClass({
       this.setState({slideIndex: value});
     },
 
+    doSwipe(){
 
+      if(this.state.isSwiped==false){
+        this.setState({isSwiped: true});
+        swipeout(0);
+      }else{
+        this.setState({isSwiped: false});
+        swipeout(1);
+      }
+    },
 
   render() {
+
 
     return (
 <div>
 
-  <AandD />
-    <div style={{height:'61px'}}></div>
-    
-   <Tabs className="swipeheadHome" inkBarStyle={{backgroundColor:'#FFEB3B'}} onChange={this.handleTabs} value={this.state.slideIndex}>
-    <Tab label="睡眠" value={0}>
+  <AandD id="0" />
+    <div style={{height:'70px'}}></div>
 
-    </Tab>
-    <Tab label="计步" value={1}>
-    </Tab>
-    <Tab label="跑步" value={2}>
-    </Tab>
-    <Tab label="骑行" value={3}>
-    </Tab>
 
+
+
+    <MyDrawer activeItem="1" />
+
+  <div  className="testdiv">
+
+    <div style={{display:'inline-block',width:'690px'}}>
+      <IndexSleepCard />
+      <IndexWalkCard />
+      <IndexRunCard />
+      <IndexRideCard />
+    </div>
+
+    <div style={{display:'inline-block',width:'26%',verticalAlign:'top',marginTop:'23px',marginLeft:'20px'}}>
+
+ <Paper zDepth={1}>
+      <Tabs onChange={this.handleTabs}
+          value={this.state.slideIndex}>
+    <Tab
+      label="排名"
+      icon={<RankIcon/>}
+      value={0}
+
+    />
+    <Tab
+      icon={<HotIcon/>}
+      label="热门"
+      value={1}
+    />
   </Tabs>
 
-
-
   <SwipeableViews
+         index={this.state.slideIndex}
+         onChangeIndex={this.handleTabs}
+       >
 
-          index={this.state.slideIndex}
-          onChangeIndex={this.handleTabs}
-        >
 
-      <SleepTab />
+       <div>
 
-      <WalkTab />
+          <RankTab />
 
-      <RunTab />
+        </div>
 
-      <RideTab />
-</SwipeableViews>
 
+
+        <div >
+          <RankTab />
+        </div>
+
+
+
+  </SwipeableViews>
+</Paper>
+
+    </div>
+
+
+
+
+  </div>
 
 
 </div>

@@ -9,6 +9,10 @@ import Circle from './circle.jsx';
 
 import MyInfo from './myinfo.jsx';
 
+import MyGroup from './mygroup.jsx';
+
+import MyAty from './myaty.jsx';
+
 import Stats from './stat.jsx';
 
 import Search from './searchres.jsx';
@@ -62,7 +66,25 @@ const MyInfoContent=React.createClass({
   }
 });
 
+const MyGroupContent=React.createClass({
+    render() {
+        return (
+            <MuiThemeProvider>
+                <MyGroup  username={this.props.params.username}/>
+            </MuiThemeProvider>
+        );
+    }
+});
 
+const MyAtyContent=React.createClass({
+    render() {
+        return (
+            <MuiThemeProvider>
+                <MyAty  username={this.props.params.username}/>
+            </MuiThemeProvider>
+        );
+    }
+});
 
 const StatsContent=React.createClass({
   render() {
@@ -130,6 +152,8 @@ ReactDOM.render((
     <Route path="/about" component={MainContent}/>
     <Route path="/circle" component={CircleContent}/>
     <Route path="/myinfo(/:username)" component={MyInfoContent}/>
+      <Route path="/mygroup(/:username)" component={MyGroupContent}/>
+      <Route path="/myaty(/:username)" component={MyAtyContent}/>
     <Route path="/stats(/:page)"  component={StatsContent}/>
 
     <Route path="/search(/:keyword)" component={SearchContent}/>

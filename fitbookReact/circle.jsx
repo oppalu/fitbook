@@ -16,6 +16,7 @@ import MyAtyCard from './myactivity.jsx';
 
 import PostCard from './postcard.jsx';
 import AandD from './appbaranddrawer.jsx';
+import MyDrawer from './mydrawer.jsx';
 
 
 const MainContent = React.createClass({
@@ -70,9 +71,14 @@ const MainContent = React.createClass({
     return (
 <div>
 
-<AandD/>
+<AandD id="1"/>
 
 <div style={{height:'61px'}}></div>
+
+  <MyDrawer activeItem="2" />
+
+
+  <div  className="testdiv2">
 <div style={{paddingTop:'40px'}}>
   <div id="circleOther">
    <FriendCard />
@@ -83,10 +89,10 @@ const MainContent = React.createClass({
   </div>
 
   <div id="circleMain" >
-  <PublishCard/>
+  <PublishCard />
 {this.state.postobj}
   </div>
-
+</div>
 
 
 

@@ -193,7 +193,7 @@ const SleepTab = React.createClass({
         leftAvatar={<Avatar src="assets/avatar/2.jpeg"/>}
         rightIcon={<SecIcon />}
       /></Link>
-      
+
       <Link to={{ pathname: "/myinfo/KILLER" }} style={{ textDecoration: 'none' }} ><ListItem
         primaryText="KILLER"
         leftAvatar={<Avatar src="assets/avatar/1.jpeg" />}

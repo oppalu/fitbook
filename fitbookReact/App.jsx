@@ -34,6 +34,20 @@ const LoginDia= React.createClass({
         }
     },
 
+    handleLoginPressEnter(event){
+        if(event.keyCode==13){
+            this.onLogin();
+        }
+
+    },
+
+    handleRegPressEnter(event){
+        if(event.keyCode==13){
+            this.onReg();
+        }
+
+    },
+
     handleOpen() {
     this.setState({isClickLogin: true});
     },
@@ -93,7 +107,7 @@ const LoginDia= React.createClass({
 
             // alert(ssholder.getsession());
               that.setcookie("ssid",ssholder.getsession());
-             window.location.href="http://localhost:8080/#/about";
+             window.location.href="http://localhost:8080/#/about?username="+username;
              //jump by para
 
 
@@ -127,7 +141,7 @@ const LoginDia= React.createClass({
             alert ("Browser does not support HTTP Request");
             return
           }
-          var url="http://127.0.0.1/forgetpsw.php?email=";
+          var url="http://:8888/fitbook/forgetpsw.php?email=";
           url+=email;
 
 
@@ -308,7 +322,6 @@ const LoginDia= React.createClass({
 
     return (
     <div>
-    <Link to="/manage" style={{ textDecoration: 'none' }}>   <FlatButton id="gotocontent" label="管理员入口" style={style} onTouchTap={this.jumpContent}/> </Link>
      <FlatButton label="登录" style={style}
      onTouchTap={this.handleOpen}
      />
@@ -322,8 +335,8 @@ const LoginDia= React.createClass({
          contentStyle={customLoginStyle}
        >
 
-       <TextField ref="username" hintText="用户名" floatingLabelText="用户名"/><br/>
-       <TextField  ref="password" hintText="密码" floatingLabelText="密码" type="password"/>
+       <TextField ref="username" hintText="用户名" floatingLabelText="用户名" onKeyDown={this.handleLoginPressEnter}/><br/>
+       <TextField  ref="password" hintText="密码" floatingLabelText="密码" type="password" onKeyDown={this.handleLoginPressEnter}/>
 
        <div>
          <span>{this.state.loginstate}</span>
@@ -337,10 +350,10 @@ const LoginDia= React.createClass({
            open={this.state.isClickReg}
            contentStyle={{width: '300px'}}
          >
-         <TextField ref="regemail" hintText="邮箱" floatingLabelText="邮箱"/><br/>
-         <TextField ref="regusername" hintText="用户名" floatingLabelText="用户名"/><br/>
-         <TextField ref="regpassword" hintText="密码" floatingLabelText="密码" type="password"/><br/>
-         <TextField ref="regconpassword" hintText="确认密码" floatingLabelText="确认密码" type="password"/>
+         <TextField ref="regemail" hintText="邮箱" floatingLabelText="邮箱" onKeyDown={this.handleRegPressEnter}/><br/>
+         <TextField ref="regusername" hintText="用户名" floatingLabelText="用户名" onKeyDown={this.handleRegPressEnter}/><br/>
+         <TextField ref="regpassword" hintText="密码" floatingLabelText="密码" type="password" onKeyDown={this.handleRegPressEnter}/><br/>
+         <TextField ref="regconpassword" hintText="确认密码" floatingLabelText="确认密码" type="password" onKeyDown={this.handleRegPressEnter}/>
          <div>
            <span>{this.state.regstate}</span>
          </div>

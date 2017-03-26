@@ -1,9 +1,7 @@
 import React from 'react';
 import Avatar from 'material-ui/Avatar';
-import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton/IconButton';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import {List, ListItem} from 'material-ui/List';
 import Dialog from 'material-ui/Dialog';
 import Divider from 'material-ui/Divider';
@@ -15,8 +13,10 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Snackbar from 'material-ui/Snackbar';
 import SendIcon from 'material-ui/svg-icons/content/send';
 import PhotoIcon from 'material-ui/svg-icons/image/add-a-photo';
-import PicIcon from 'material-ui/svg-icons/image/photo-album';
 import ModifyIcon from 'material-ui/svg-icons/editor/mode-edit';
+import FriendIcon from 'material-ui/svg-icons/action/face';
+import GroupIcon from 'material-ui/svg-icons/social/people';
+import AtyIcon from 'material-ui/svg-icons/image/assistant-photo';
 import {white,grey50,grey700} from 'material-ui/styles/colors';
 
 function isInteger(str) {
@@ -50,6 +50,21 @@ const Cover = React.createClass({
             uploadavatarname:"",
             infoerrormsg:"",
             isExitDiaShow:false,
+            infoStatus:1
+        }
+    },
+    handleDetail(s) {
+        switch (s) {
+            case 1:
+                window.location.href="http://localhost:8080/#/myinfo/"+this.state.username;
+                break;
+            case 2:
+                window.location.href="http://localhost:8080/#/mygroup/"+this.state.username;
+                break;
+            case 3:
+                window.location.href="http://localhost:8080/#/myaty/"+this.state.username;
+                break;
+            default:
         }
     },
     avatarpopupload(){
@@ -60,6 +75,7 @@ const Cover = React.createClass({
 
         this.setState({uploadavatarname: file});
     },
+
     coverpopupload(){
         document.getElementById('inputcoverfile').click();
     },
@@ -138,8 +154,6 @@ const Cover = React.createClass({
                     window.location.href=newurl;
                     location.reload();
                 }
-
-
 
 
 
@@ -271,7 +285,6 @@ const Cover = React.createClass({
         this.initData();
     },
     initData(){
-
 
         var xmlHttp =GetXmlHttpObject();
         if (xmlHttp==null){
@@ -410,6 +423,10 @@ const Cover = React.createClass({
 
                     <List>
                         <ListItem style={{color: '#ffffff'}} leftIcon={<ModifyIcon color={grey50}/>} primaryText="修改个人资料" onTouchTap={this.handleModify}/>
+                        <Divider/>
+                        <ListItem style={{color: '#ffffff'}} leftIcon={<FriendIcon color={grey50}/>} primaryText="我的好友" onTouchTap={this.handleDetail.bind(this,1)}/>
+                        <ListItem style={{color: '#ffffff'}} leftIcon={<GroupIcon color={grey50}/>} primaryText="我的群组" onTouchTap={this.handleDetail.bind(this,2)}/>
+                        <ListItem style={{color: '#ffffff'}} leftIcon={<AtyIcon color={grey50}/>} primaryText="我的活动" onTouchTap={this.handleDetail.bind(this,3)}/>
                     </List>
 
                     <RaisedButton
