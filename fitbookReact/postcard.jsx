@@ -14,15 +14,6 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import TextField from 'material-ui/TextField';
 import Divider from 'material-ui/Divider';
 
-const rightIconMenu = (
-    <IconMenu
-        iconButtonElement={<IconButton><MoreVertIcon/></IconButton>}
-        anchorOrigin={{horizontal: 'left', vertical: 'top'}}
-        targetOrigin={{horizontal: 'left', vertical: 'top'}}
-    >
-      <MenuItem primaryText="回复" />
-    </IconMenu>
-);
 
 const PostCard = React.createClass({
 
@@ -44,11 +35,13 @@ const PostCard = React.createClass({
       postid:this.props.postid,
       isDelDiaShow:false,
       commentinfo:"",
-      commentnum:0
+      commentnum:0,
+      replyinput:"",
+      replyinfo:"",
     }
   },
 
-    handleComment() {
+handleComment() {
       var content=this.refs.commentcontent.getValue();
         var xmlHttp =GetXmlHttpObject();
 
@@ -72,6 +65,34 @@ const PostCard = React.createClass({
 
         xmlHttp.open("GET",url,true);
         xmlHttp.send();
+    },
+
+    handleReplyChange: function(event) {
+        this.setState({replyinput: event.target.value});
+    },
+
+    handleReply(authorname) {
+        var rows=[];
+        var temp="回复给"+authorname;
+
+        rows.push(<div style={{marginLeft:30}}>
+          <TextField style={{paddingLeft:15}} hintText={temp} onChange={this.handleReplyChange}/>
+          <FlatButton style={{marginLeft:30}} label="回复" onTouchTap={this.replyresult.bind(this,authorname)}/>
+        </div>);
+        this.setState({replyinfo: rows});
+    },
+
+    replyresult(authorname) {
+        var rows=[];
+        rows.push(<ListItem style={{paddingLeft:30}} leftAvatar={<Avatar src={this.state.avatarlink} />}
+                            secondaryText={
+                              <p style={{color: darkBlack}}>{this.state.username}<br/>
+                                  回复给{authorname}:&nbsp;&nbsp;&nbsp;&nbsp;{this.state.replyinput}
+                              </p>
+                            }
+                            secondaryTextLines={2}
+        />);
+        this.setState({replyinfo: rows});
     },
 
   handleLike(){
@@ -155,7 +176,10 @@ const PostCard = React.createClass({
 
                 var rows=[];
                 for(var i=0;i<json.length;i++){
-                    rows.push(<ListItem leftAvatar={<Avatar src={json[i].avatar} />} rightIconButton={rightIconMenu}
+                    rows.push(<ListItem leftAvatar={<Avatar src={json[i].avatar} />}
+                                        rightIconButton={<IconMenu
+                                            iconButtonElement={<IconButton><MoreVertIcon/></IconButton>} anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+                                            targetOrigin={{horizontal: 'left', vertical: 'top'}}><MenuItem primaryText="回复" onTouchTap={that.handleReply.bind(this,json[i].authorname)}/></IconMenu>}
                         secondaryText={
                           <p style={{color: darkBlack}}>{json[i].authorname}
                           <span style={{color: grey400,marginLeft:30}}>{json[i].createtime}</span><br/>
@@ -275,7 +299,7 @@ const PostCard = React.createClass({
 
         <CardMedia>
           <div style={{margin:15}}>
-            <Avatar src="assets/avatar/1.jpeg" />
+            <Avatar src={this.state.avatarlink} />
             <TextField
                 ref="commentcontent"
                 style={{paddingLeft:15}}
@@ -290,6 +314,7 @@ const PostCard = React.createClass({
         <CardMedia expandable={true}>
           <List>
               {this.state.commentinfo}
+              {this.state.replyinfo}
           </List>
         </CardMedia>
 

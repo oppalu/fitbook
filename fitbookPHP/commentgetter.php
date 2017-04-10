@@ -36,7 +36,7 @@ while($row = $ret->fetchArray(SQLITE3_ASSOC) ){
 
     $createtime=$row['createtime'];
 
-    $commentobj=new Comment($authorname,$avatar,$content,$createtime);
+    $commentobj=new Comment($commentid,$authorname,$avatar,$content,$createtime);
     array_push($commentarr, $commentobj);
 }
 

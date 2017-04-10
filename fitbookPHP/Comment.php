@@ -9,12 +9,14 @@
 header('Access-Control-Allow-Origin: *');
 class Comment
 {
+    public $id;
     public $authorname;
     public $avatar;
     public $content;
     public $createtime;
 
-    function __construct($authorname,$avatar,$content,$createtime){
+    function __construct($id,$authorname,$avatar,$content,$createtime){
+        $this->id=$id;
         $this->authorname=$authorname;
         $this->avatar=$avatar;
         $this->content=$content;

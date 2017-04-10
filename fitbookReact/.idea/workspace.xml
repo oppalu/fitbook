@@ -21,12 +21,22 @@
       <file leaf-file-name="postcard.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/postcard.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="48" column="4" lean-forward="true" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="4" />
+            <state relative-caret-position="162">
+              <caret line="89" column="12" lean-forward="true" selection-start-line="89" selection-start-column="12" selection-end-line="89" selection-end-column="12" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <marker date="1491829078000" expanded="true" signature="1150:1656" ph="{&quot;likebg&quot;: '##eaeaea'...}" />
+                <marker date="1491836427000" expanded="true" signature="860:1408" ph="{&quot;likebg&quot;: '##eaeaea'...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cover.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cover.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="268">
+              <caret line="480" column="269" lean-forward="false" selection-start-line="480" selection-start-column="257" selection-end-line="480" selection-end-column="269" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -34,7 +44,7 @@
       <file leaf-file-name="circle.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/circle.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
+            <state relative-caret-position="-819">
               <caret line="65" column="41" lean-forward="true" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
               <folding />
             </state>
@@ -58,6 +68,9 @@
       <find>PostCard</find>
       <find>refs</find>
       <find>8888/fitbook</find>
+      <find>sty</find>
+      <find>handleDetail</find>
+      <find>avatar</find>
     </findStrings>
     <replaceStrings>
       <replace>127.0.0.1</replace>
@@ -137,8 +150,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="13" />
-    <option name="y" value="25" />
+    <option name="x" value="562" />
+    <option name="y" value="56" />
     <option name="width" value="1280" />
     <option name="height" value="709" />
   </component>
@@ -326,12 +339,12 @@
       <workItem from="1491736350996" duration="2103000" />
       <workItem from="1491790493162" duration="3867000" />
       <workItem from="1491801218547" duration="168000" />
-      <workItem from="1491802722588" duration="10203000" />
+      <workItem from="1491802722588" duration="15403000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105645000" />
+    <option name="totallyTimeSpent" value="110845000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -343,10 +356,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="13" y="25" width="1280" height="709" extended-state="0" />
-    <editor active="true" />
+    <frame x="562" y="56" width="1280" height="709" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21842733" sideWeight="0.4700162" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21842733" sideWeight="0.4700162" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24149108" sideWeight="0.51231134" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3273906" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -870,29 +883,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cover.jsx">
+    <entry file="file://$PROJECT_DIR$/circle.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="354" column="22" lean-forward="true" selection-start-line="354" selection-start-column="8" selection-end-line="354" selection-end-column="22" />
+        <state relative-caret-position="-819">
+          <caret line="65" column="41" lean-forward="true" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/circle.jsx">
+    <entry file="file://$PROJECT_DIR$/cover.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="65" column="41" lean-forward="true" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+        <state relative-caret-position="268">
+          <caret line="480" column="269" lean-forward="false" selection-start-line="480" selection-start-column="257" selection-end-line="480" selection-end-column="269" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/postcard.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="48" column="4" lean-forward="true" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="4" />
+        <state relative-caret-position="162">
+          <caret line="89" column="12" lean-forward="true" selection-start-line="89" selection-start-column="12" selection-end-line="89" selection-end-column="12" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <marker date="1491829078000" expanded="true" signature="1150:1656" ph="{&quot;likebg&quot;: '##eaeaea'...}" />
+            <marker date="1491836427000" expanded="true" signature="860:1408" ph="{&quot;likebg&quot;: '##eaeaea'...}" />
           </folding>
         </state>
       </provider>
