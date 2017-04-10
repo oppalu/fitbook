@@ -53,7 +53,7 @@ const RunTab = React.createClass({
         alert ("Browser does not support HTTP Request")
         return
       }
-      var url="http://127.0.0.1/rungetter.php?ssid=";
+      var url="http://localhost/rungetter.php?ssid=";
       url+=getCookie("ssid");
       var that=this;
       xmlHttp.onreadystatechange=function(){
@@ -93,7 +93,7 @@ const RunTab = React.createClass({
         alert ("Browser does not support HTTP Request");
         return;
       }
-      var url="http://127.0.0.1/poster.php?ssid=";
+      var url="http://localhost/poster.php?ssid=";
       url+=getCookie("ssid");
       url+="&type=";
       url+="3";

@@ -26,7 +26,7 @@ if($_SESSION['name']==""){
 
 
 $db=new MyDB();
-$tempsql="select coverlink,avatarlink,exp from User u,Cover c where u.userid=c.id and c.type=\"user\" and u.username=";
+$tempsql="select email,age,gender,coverlink,avatarlink,exp from User u,Cover c where u.userid=c.id and c.type=\"user\" and u.username=";
 
 $tempsql=$tempsql."\"".$username."\";";
 
@@ -36,6 +36,9 @@ $sql =<<<EOF
      $tempsql
 EOF;
 
+$email="";
+$age=0;
+$gender="";
 
 $exp=-1;
 $coverlink="";
@@ -49,6 +52,10 @@ $level=0;
 $ret = $db->query($sql);
 
 while($row = $ret->fetchArray(SQLITE3_ASSOC) ){
+	$email=$row['email'];
+  $age=$row['age'];
+  $gender=$row['gender'];
+
   $exp=$row['exp'];
 
   $coverlink=$row['coverlink'];
@@ -73,7 +80,8 @@ if($exp==-1){
   $coverlink="url(".$coverlink.")";
   $exp="经验值: ".$exp;
   $level="当前等级: ".$level;
-  $arr = array('isava'=>1,'exp' => $exp, 'coverlink'=>$coverlink,'avatarlink'=>$avatarlink,'level'=>$level,'username'=>$username);
+  $age=$age."岁";
+  $arr = array('isava'=>1,'exp' => $exp, 'coverlink'=>$coverlink,'avatarlink'=>$avatarlink,'level'=>$level,'username'=>$username,'email' => $email,'age'=>$age,'gender'=>$gender);
   echo json_encode($arr);
 }
 

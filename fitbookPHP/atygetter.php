@@ -9,50 +9,52 @@
 
 //获得数目，名字，头像
 header('Access-Control-Allow-Origin: *');
-require ("DBHelper.php");
+require("DBHelper.php");
 require("aty.php");
 
- $username=$_GET["username"];
+$username = $_GET["username"];
+$coverurl="http://127.0.0.1:8888/php/userdata/cover/";
 
 
+$db = new MyDB();
+$tempsql = "select aty.atyid as aid,title,intro,p.pnum as num,coverlink,maincolor from Cover c,(select atyid,count(*) as pnum from AtyUser group by atyid)p,AtyUser au,User u,Activity aty where au.userid=u.userid and c.id=aty.atyid and c.type='aty' and p.atyid=aty.atyid and aty.atyid=au.atyid and u.username=";
+
+$tempsql = $tempsql . "\"" . $username . "\";";
 
 
-$db=new MyDB();
-$tempsql="select aty.atyid as aid,title from AtyUser au,User u,Activity aty where au.userid=u.userid and aty.atyid=au.atyid and u.username=";
-
-$tempsql=$tempsql."\"".$username."\";";
-
-
-$sql =<<<EOF
+$sql = <<<EOF
      $tempsql
 EOF;
 
 
-
-$atyid="";
-$title="";
-
+$atyid = "";
+$title = "";
+$intro = "";
+$num = 0;
+$coverlink = "";
+$maincolor = "";
 
 $ret = $db->query($sql);
 
 
- $userarr =array();
+$userarr = array();
 
-while($row = $ret->fetchArray(SQLITE3_ASSOC) ){
-  $title=$row['title'];
+while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
+    $title = $row['title'];
+    $atyid = $row['aid'];
+    $intro = $row['intro'];
+    $num = $row['num'];
+    $coverlink = $coverurl.$row['coverlink'];
+    $maincolor = $row['maincolor'];
 
-  $atyid=$row['aid'];
+    $user = new Aty($title, $atyid,$intro,$num,$coverlink,$maincolor);
 
-
-  $user=new Aty($title,$atyid);
-
-  array_push($userarr, $user);
+    array_push($userarr, $user);
 
 }
 
-$json_string = json_encode($userarr,JSON_UNESCAPED_UNICODE);
+$json_string = json_encode($userarr, JSON_UNESCAPED_UNICODE);
 echo $json_string;
-
 
 
 //use while avoid empty
@@ -69,4 +71,4 @@ echo $json_string;
 //   $arr = array('isava'=>1,'steps' => $strsteps, 'duration'=>$strduration,'distance'=>$strdistance,'cal'=>$cal);
 //   echo json_encode($arr);
 // }
- ?>
+?>

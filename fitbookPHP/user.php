@@ -9,14 +9,18 @@ header('Access-Control-Allow-Origin: *');
 
 
 class User{
-  public $username;
-  public $avatarlink;
+    public $username;
+    public $avatarlink;
+    public $coverLink;
+    public $mainColor;
 
-  function __construct($username,$avatarlink){
-            $this->avatarlink=$avatarlink;
-            $this->username=$username;   
-        }
+    function __construct($username, $avatarlink,$coverLink,$mainColor){
+        $this->avatarlink = $avatarlink;
+        $this->username = $username;
+        $this->coverLink = $coverLink;
+        $this->mainColor = $mainColor;
+    }
 }
 
 
- ?>
+?>

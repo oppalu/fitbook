@@ -36,7 +36,7 @@ const PublishCard = React.createClass({
         alert ("Browser does not support HTTP Request");
         return;
       }
-      var url="http://127.0.0.1/sportdatagetter.php?ssid=";
+      var url="http://localhost/sportdatagetter.php?ssid=";
       url+=getCookie("ssid");
       url+="&type=";
       url+=value;
@@ -70,7 +70,7 @@ const PublishCard = React.createClass({
         alert ("Browser does not support HTTP Request");
         return;
       }
-      var url="http://127.0.0.1/poster.php?ssid=";
+      var url="http://localhost/poster.php?ssid=";
       url+=getCookie("ssid");
       url+="&type=";
       url+=this.state.selectValue;
@@ -117,8 +117,8 @@ const PublishCard = React.createClass({
       <div>
       <Card style={{height:'75px',cursor:'pointer'}} onTouchTap={this.handleDialogOpen}>
 
-      <Avatar src="assets/head.png" style={{marginTop:'3%',marginLeft:'4%'}}/>
-      <span style={{verticalAlign: '53%',color:'#AFAFAF',fontSize:'20px',marginLeft:'10px'}}>你最近有什么新鲜事要分享吗?</span>
+      <div style={{display:'inline-block',marginTop:'3%',marginLeft:'4%'}}> <Avatar src="assets/head.png" /></div>
+      <p style={{display:'inline-block',color:'#AFAFAF',fontSize:'20px',marginLeft:'10px'}}>你最近有什么新鲜事要分享吗?</p>
       </Card>
 
 

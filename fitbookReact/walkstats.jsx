@@ -141,7 +141,7 @@ const WalkStat = React.createClass({
         alert ("Browser does not support HTTP Request")
         return
       }
-      var url="http://127.0.0.1/walkdatagetter.php?ssid=";
+      var url="http://localhost/walkdatagetter.php?ssid=";
       url+=getCookie("ssid");
 
       var that=this;
@@ -179,7 +179,7 @@ const WalkStat = React.createClass({
         alert ("Browser does not support HTTP Request")
         return
       }
-      var url="http://127.0.0.1/specificwalkgetter.php?ssid=";
+      var url="http://localhost/specificwalkgetter.php?ssid=";
       url+=getCookie("ssid");
       url+="&date=";
       url+=stddate;

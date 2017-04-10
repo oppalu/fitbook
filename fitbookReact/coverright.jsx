@@ -60,7 +60,7 @@ const DetailInfo = React.createClass({
             alert("Browser does not support HTTP Request")
             return
         }
-        var url = "http://127.0.0.1/friendgetter.php?username=";
+        var url = "http://localhost/friendgetter.php?username=";
         url += this.state.username;
         var that = this;
         xmlHttp.onreadystatechange = function () {

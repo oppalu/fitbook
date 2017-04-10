@@ -45,7 +45,7 @@ const Stat = React.createClass({
         alert ("Browser does not support HTTP Request")
         return
       }
-      var url="http://127.0.0.1/fastuserdeleter.php?username=";
+      var url="http://localhost:8888/fitbook/fastuserdeleter.php?username=";
       url+=realname;
 
       var that=this;
@@ -75,7 +75,7 @@ const Stat = React.createClass({
         alert ("Browser does not support HTTP Request")
         return
       }
-      var url="http://127.0.0.1/fastatydeleter.php?atyid=";
+      var url="http://localhost:8888/fitbook/fastatydeleter.php?atyid=";
       url+=realname;
 
       var that=this;
@@ -114,7 +114,7 @@ const Stat = React.createClass({
       alert ("Browser does not support HTTP Request")
       return
     }
-    var url="http://127.0.0.1/search.php?keyword=";
+    var url="http://localhost:8888/fitbook/search.php?keyword=";
     url+="@@";
 
 

@@ -18,7 +18,7 @@ import DropDownMenu from 'material-ui/DropDownMenu';
 import DatePicker from 'material-ui/DatePicker';
 import TimePicker from 'material-ui/TimePicker';
 import Checkbox from 'material-ui/Checkbox';
-
+import MapDIV from './mapDIV.jsx';
 function isInteger(str) {
   if(/^\d+$/.test(str))
  {
@@ -46,6 +46,8 @@ const MyInfo = React.createClass({
       isatychallenge:false,
       atyerrormsg:"",
       maxexp:0,
+      isMapOpen:false,
+      mapaddress:"地点",
 
 
     }
@@ -225,7 +227,7 @@ const MyInfo = React.createClass({
 
     var pstarttime=startdate+" "+starttime;
     var pendtime=enddate+" "+endtime;
-    var url="http://127.0.0.1/atycreator.php?ssid=";
+    var url="http://localhost/atycreator.php?ssid=";
     url+=getCookie("ssid");
     url+="&coin=";
     url+=coin;
@@ -292,7 +294,7 @@ const MyInfo = React.createClass({
       alert ("Browser does not support HTTP Request")
       return
     }
-    var url="http://127.0.0.1/namechecker.php?ssid=";
+    var url="http://localhost/namechecker.php?ssid=";
     url+=getCookie("ssid");
     var that=this;
     xmlHttp.onreadystatechange=function(){
@@ -355,6 +357,18 @@ const MyInfo = React.createClass({
         onTouchTap={this.addaty}
       />,
     ];
+    const mapactions = [
+      <FlatButton
+        label="取消"
+        primary={true}
+        onTouchTap={this.handleMapClose}
+      />,
+      <FlatButton
+        label="确定"
+        primary={true}
+        onTouchTap={this.handleMapConfirm}
+      />,
+    ];
 
     return (
       <div>
@@ -377,7 +391,7 @@ const MyInfo = React.createClass({
           <AandD id="2" />
 
 <div className="wholecover" >
-         <Cover username={this.state.username}/>
+         <Cover username={this.state.username} infoStatus="right2"/>
 </div>
 <div className="rightcover">
          <CoverGroup username={this.state.username}/>
@@ -469,6 +483,24 @@ const MyInfo = React.createClass({
 
 
   </Dialog>
+
+
+
+    <Dialog
+        title={<div>选择地点:<span id="mapaddress"></span></div>}
+        actions={mapactions}
+        modal={true}
+        open={this.state.isMapOpen}
+        contentStyle={{width:'750px'}}
+        autoScrollBodyContent={false}
+    >
+
+  <MapDIV />
+
+  <h5 style={{display:'inline-block',marginRight:'10px'}}>附加描述</h5>
+    <TextField ref="addinfo" floatingLabelText="可以填写熟知的地址和标志性建筑" /><br/>
+
+    </Dialog>
 
 
 

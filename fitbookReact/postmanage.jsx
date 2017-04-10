@@ -28,7 +28,7 @@ const PostManage = React.createClass({
         alert ("Browser does not support HTTP Request")
         return
       }
-      var url="http://127.0.0.1/postmanagegetter.php?ssid=";
+      var url="http://localhost/postmanagegetter.php?ssid=";
       url+=getCookie("ssid");
       var that=this;
       xmlHttp.onreadystatechange=function(){

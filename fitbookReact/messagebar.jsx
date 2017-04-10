@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {Card, CardHeader, CardText} from 'material-ui/Card';
+import Avatar from 'material-ui/Avatar';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import TickIcon from 'material-ui/svg-icons/action/done';
 import CrossIcon from 'material-ui/svg-icons/content/clear';
@@ -49,7 +50,7 @@ const MessageBar = React.createClass({
             alert("Browser does not support HTTP Request")
             return
         }
-        var url = "http://127.0.0.1/reply.php?msgid=";
+        var url = "http://127.0.0.1:80/fitbook/reply.php?msgid=";
         url += this.state.msgid;
         url += "&reply=";
         url += reply;
@@ -93,15 +94,28 @@ const MessageBar = React.createClass({
 
 
         return (
-            <div style={{borderTop: 'solid 1px #e0e0e0'}}>
+            <div style={{borderTop: 'solid 1px #e0e0e0',marginTop:'5%',minHeight:70}}>
                 <Card>
-                    <CardHeader
-                        title={this.state.sendername}
-                        avatar={this.state.avatarlink}
-                    >
+
+
+
+
+
+                    <CardText style={{marginTop: '-25px', marginBottom: '-15px'}}>
+                        <Avatar src={this.state.avatarlink} size={50}/>
                         <div style={{
                             display: 'inline-block',
-                            float: 'right',
+                            verticalAlign: '50%',
+                            fontSize: '15px',
+                            marginLeft:'5%'
+                        }}>
+                            <span>{this.state.sendername+this.state.title}</span></div>
+
+                        <div style={{
+                            display: 'inline-block',
+                            verticalAlign: '50%',
+                            marginTop:'1%',
+                            float:'right',
                             fontSize: '13px',
                             color: '#ff0079',
                             marginRight: '10px',
@@ -110,23 +124,15 @@ const MessageBar = React.createClass({
                         }} onTouchTap={this.handleReject} >{this.state.rejecttext}</div>
                         <div style={{
                             display: 'inline-block',
-                            float: 'right',
+                            verticalAlign: '50%',
+                            marginTop:'1%',
+                            float:'right',
                             fontSize: '13px',
                             color: '#00c1d7',
                             marginRight: '10px',
                             cursor: 'pointer',
                             display: this.state.isAgree
                         }} onTouchTap={this.handleAgree} >{this.state.agreetext}</div>
-                    </CardHeader>
-
-                    <CardText style={{marginTop: '-25px', marginBottom: '-15px'}}>
-                        <div style={{
-                            display: 'inline-block',
-                            verticalAlign: '50%',
-                            fontSize: '15px'
-                        }}>{this.state.title}</div>
-
-
                     </CardText>
 
 

@@ -3,12 +3,19 @@ import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import AccountIcon from 'material-ui/svg-icons/action/account-circle';
 import TextField from 'material-ui/TextField';
+import {List, ListItem} from 'material-ui/List';
+
+
+import Avatar from 'material-ui/Avatar';
 
 import Cover from './cover.jsx';
 import CoverRight from './coverright.jsx';
 import AandD from './appbaranddrawer.jsx';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
+
+
+import MapIcon from 'material-ui/svg-icons/maps/add-location';
 
 import IconMenu from 'material-ui/IconMenu';
 import Menu from 'material-ui/Menu';
@@ -18,6 +25,9 @@ import DropDownMenu from 'material-ui/DropDownMenu';
 import DatePicker from 'material-ui/DatePicker';
 import TimePicker from 'material-ui/TimePicker';
 import Checkbox from 'material-ui/Checkbox';
+import MapDIV from './mapDIV.jsx';
+
+
 
 function isInteger(str) {
   if(/^\d+$/.test(str))
@@ -46,6 +56,9 @@ const MyInfo = React.createClass({
       isatychallenge:false,
       atyerrormsg:"",
       maxexp:0,
+      isMapOpen:false,
+      mapaddress:"地点",
+
 
     }
   },
@@ -55,6 +68,7 @@ const MyInfo = React.createClass({
     }else{
       this.setState({isatychallenge: false});
     }
+
   },
   handleNewChallengeOpen(){
     this.setState({isNewChallengeOpen: true});
@@ -95,8 +109,27 @@ const MyInfo = React.createClass({
       var stddate=this.formatTime(date);
       this.setState({endtime: stddate});
   },
+  handleMapOpen(){
+
+    this.setState({isMapOpen: true});
+  },
+  handleMapClose(){
+    this.setState({isMapOpen: false});
+  },
+
+  handleMapConfirm(){
+    var addinfo=this.refs.addinfo.getValue();
+
+    var maddress=document.getElementById("mapaddress").innerText;
+
+    var res=maddress+" "+addinfo;
+
+this.setState({mapaddress: ""});
+this.refs.atylocation.getInputNode().value = res;
 
 
+    this.setState({isMapOpen: false});
+  },
   formatTime(strdate){
 
   var date=new Date(strdate);
@@ -225,7 +258,7 @@ const MyInfo = React.createClass({
 
     var pstarttime=startdate+" "+starttime;
     var pendtime=enddate+" "+endtime;
-    var url="http://127.0.0.1/atycreator.php?ssid=";
+    var url="http://localhost/atycreator.php?ssid=";
     url+=getCookie("ssid");
     url+="&coin=";
     url+=coin;
@@ -275,6 +308,8 @@ const MyInfo = React.createClass({
   },
   componentDidMount: function() {
       this.initData();
+
+
   },
 
   initData(){
@@ -292,7 +327,7 @@ const MyInfo = React.createClass({
       alert ("Browser does not support HTTP Request")
       return
     }
-    var url="http://127.0.0.1/namechecker.php?ssid=";
+    var url="http://localhost/namechecker.php?ssid=";
     url+=getCookie("ssid");
     var that=this;
     xmlHttp.onreadystatechange=function(){
@@ -356,6 +391,20 @@ const MyInfo = React.createClass({
       />,
     ];
 
+
+    const mapactions = [
+      <FlatButton
+        label="取消"
+        primary={true}
+        onTouchTap={this.handleMapClose}
+      />,
+      <FlatButton
+        label="确定"
+        primary={true}
+        onTouchTap={this.handleMapConfirm}
+      />,
+    ];
+
     return (
       <div>
       <div id="fixedbutton" style={{display:this.state.circledisplayinfo}}>
@@ -377,9 +426,9 @@ const MyInfo = React.createClass({
           <AandD id="2" />
 
 <div className="wholecover" >
-         <Cover id="left" username={this.state.username}/>
+         <Cover username={this.state.username} infoStatus="right1"/>
 </div>
-<div id="right" className="rightcover">
+<div className="rightcover">
          <CoverRight username={this.state.username}/>
 </div>
 
@@ -419,8 +468,14 @@ const MyInfo = React.createClass({
   <TextField ref="atyname" floatingLabelText="活动名称"
   /><br/>
   <TextField ref="atyintro" floatingLabelText="简介" /><br/>
-  <TextField ref="atylocation" floatingLabelText="地点"
-  /><br/>
+
+
+
+  <TextField ref="atylocation" hintText={this.state.mapaddress}
+  /><div onTouchTap={this.handleMapOpen} style={{cursor:'pointer',verticalAlign:'bottom',display:'inline-block',marginLeft:'15px'}} ><MapIcon color="#00c1d7" /></div><br/>
+
+
+
 
   <span>选择一项运动:</span>
   <DropDownMenu value={this.state.dropdownvalue} onChange={this.handleDropDownChange}>
@@ -469,6 +524,26 @@ const MyInfo = React.createClass({
 
 
   </Dialog>
+
+
+
+  <Dialog
+      title={<div>选择地点:<span id="mapaddress"></span></div>}
+      actions={mapactions}
+      modal={true}
+      open={this.state.isMapOpen}
+      contentStyle={{width:'750px'}}
+      autoScrollBodyContent={false}
+  >
+
+<MapDIV />
+
+<h5 style={{display:'inline-block',marginRight:'10px'}}>附加描述</h5>
+  <TextField ref="addinfo" floatingLabelText="可以填写熟知的地址和标志性建筑" /><br/>
+
+  </Dialog>
+
+
 
 
 

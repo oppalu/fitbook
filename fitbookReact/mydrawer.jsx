@@ -33,7 +33,7 @@ const MyDrawer = React.createClass({
       alert ("Browser does not support HTTP Request")
       return
     }
-    var url="http://127.0.0.1/appbargetter.php?ssid=";
+    var url="http://localhost/appbargetter.php?ssid=";
     url+=getCookie("ssid");
     var that=this;
     xmlHttp.onreadystatechange=function(){

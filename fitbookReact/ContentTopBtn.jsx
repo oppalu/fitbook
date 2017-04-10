@@ -95,63 +95,63 @@ const CTopBtn = React.createClass({
         url += getCookie("ssid");
 
         var that = this;
-        xmlHttp.onreadystatechange = function () {
-            // that.setState({btntext: xmlHttp.responseText});
-            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-                var jsonstr = xmlHttp.responseText;
-                var json = new Function("return" + jsonstr)();
+        {/*xmlHttp.onreadystatechange = function () {*/}
+            {/*// that.setState({btntext: xmlHttp.responseText});*/}
+            {/*if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {*/}
+                {/*var jsonstr = xmlHttp.responseText;*/}
+                {/*var json = new Function("return" + jsonstr)();*/}
 
-                // alert(that.state.infoLen);
-                var rows = [];
-                var notification = [];
-                if (json.length == 0) {
-                    rows.push(<div>目前没有消息</div>);
-                    notification.push(<BellIcon style={{color: 'white', verticalAlign: '-40%', cursor: 'pointer', paddingTop: '0',paddingRight:'20',paddingLeft:'10'}}
-                                                onTouchTap={that.handleSubDrawerOpen} />);
-                } else {
-                    var num=0;
+                {/*// alert(that.state.infoLen);*/}
+                {/*var rows = [];*/}
+                {/*var notification = [];*/}
+                {/*if (json.length == 0) {*/}
+                    {/*rows.push(<div>目前没有消息</div>);*/}
+                    {/*notification.push(<BellIcon style={{color: 'white', verticalAlign: '-40%', cursor: 'pointer', paddingTop: '0',paddingRight:'20',paddingLeft:'10'}}*/}
+                                                {/*onTouchTap={that.handleSubDrawerOpen} />);*/}
+                {/*} else {*/}
+                    {/*var num=0;*/}
 
-                    for (var i = 0; i < json.length; i++) {
-                        if(json[i].state==-1){
-                            num++;
-                        }
-                        var realtitle = "";
+                    {/*for (var i = 0; i < json.length; i++) {*/}
+                        {/*if(json[i].state==-1){*/}
+                            {/*num++;*/}
+                        {/*}*/}
+                        {/*var realtitle = "";*/}
 
-                        if (json[i].challangename == "-1") {
-                            realtitle = "邀请你加入 ";
-                            realtitle += json[i].title;
-                        } else {
-                            realtitle = "向你挑战 ";
-                            realtitle += json[i].title;
-                        }
-
-                        rows.push(<MessageBar sendername={json[i].username} avatarlink={json[i].avatarlink}
-                                              msgid={json[i].msgid} state={json[i].state} title={realtitle}/>);
-                    }
-
-                    // that.setState({infoLen: num});
-
-                    if(num>0){
-                        notification.push(<Badge
-                            badgeContent={''}
-                            secondary={true}
-                            badgeStyle={{top: 0, right: 25,width:'10px',height:'10px'}}
-                            style={{verticalAlign:'-40%',cursor:'pointer',paddingTop:'0'}}
-                            onTouchTap={that.handleSubDrawerOpen}
-                        >
-                            <BellIcon style={{color: 'white'}}/>
-                        </Badge>);
-                    }else {
-                        notification.push(<BellIcon style={{color: 'white', verticalAlign: '-40%', cursor: 'pointer', paddingTop: '0',paddingRight:'20',paddingLeft:'10'}}
-                                                    onTouchTap={that.handleSubDrawerOpen} />);
-                    }
-                }
-
-                that.setState({msgobj: rows});
-                that.setState({notification:notification})
-
-            }
-        };
+                        {/*if (json[i].challangename == "-1") {*/}
+                            {/*realtitle = "邀请你加入 ";*/}
+                            {/*realtitle += json[i].title;*/}
+                        {/*} else {*/}
+                            {/*realtitle = "向你挑战 ";*/}
+                            {/*realtitle += json[i].title;*/}
+        //                 }
+        //
+        //                 rows.push(<MessageBar sendername={json[i].username} avatarlink={json[i].avatarlink}
+        //                                       msgid={json[i].msgid} state={json[i].state} title={realtitle}/>);
+        //             }
+        //
+        //             // that.setState({infoLen: num});
+        //
+        //             if(num>0){
+        //                 notification.push(<Badge
+        //                     badgeContent={''}
+        //                     secondary={true}
+        //                     badgeStyle={{top: 0, right: 25,width:'10px',height:'10px'}}
+        //                     style={{verticalAlign:'-40%',cursor:'pointer',paddingTop:'0'}}
+        //                     onTouchTap={that.handleSubDrawerOpen}
+        //                 >
+        //                     <BellIcon style={{color: 'white'}}/>
+        //                 </Badge>);
+        //             }else {
+        //                 notification.push(<BellIcon style={{color: 'white', verticalAlign: '-40%', cursor: 'pointer', paddingTop: '0',paddingRight:'20',paddingLeft:'10'}}
+        //                                             onTouchTap={that.handleSubDrawerOpen} />);
+        //             }
+        //         }
+        //
+        //         that.setState({msgobj: rows});
+        //         that.setState({notification:notification})
+        //
+        //     }
+        // };
 
         xmlHttp.open("GET", url, true);
         xmlHttp.send();

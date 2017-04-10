@@ -1,5 +1,5 @@
 
-
+var path = require('path');
 var config = {
   entry: './main.js',
 
@@ -14,7 +14,6 @@ var config = {
   },
 
   module: {
-
      loaders: [ {
         test: /\.jsx?$/,
         exclude: /node_modules/,
@@ -25,14 +24,13 @@ var config = {
         }
      }]
   },
-    resolveLoader: {
-        modulesDirectories: [
-            '/Users/phoebegl/Desktop/fitbook/fitbookReact/node_modules'
-        ]
+  resolve: {
+      alias: {
+        'react': path.join(__dirname, 'node_modules', 'react')
+      },
+      extensions: ['', '.js']
     },
 
 }
 
 module.exports = config;
-
-

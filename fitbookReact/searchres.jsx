@@ -29,7 +29,7 @@ const Stat = React.createClass({
       alert ("Browser does not support HTTP Request")
       return
     }
-    var url="http://127.0.0.1/search.php?keyword=";
+    var url="http://localhost/search.php?keyword=";
     url+=this.state.keyword;
 
 

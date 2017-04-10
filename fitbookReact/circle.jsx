@@ -18,6 +18,19 @@ import PostCard from './postcard.jsx';
 import AandD from './appbaranddrawer.jsx';
 import MyDrawer from './mydrawer.jsx';
 
+import RankTab from './rankTab.jsx';
+
+import Paper from 'material-ui/Paper';
+
+import RankIcon from 'material-ui/svg-icons/editor/format-list-numbered';
+
+import HotIcon from 'material-ui/svg-icons/social/whatshot';
+
+import {Tabs, Tab} from 'material-ui/Tabs';
+
+
+import SwipeableViews from 'react-swipeable-views';
+
 
 const MainContent = React.createClass({
   getInitialState(){
@@ -26,6 +39,7 @@ const MainContent = React.createClass({
             isClickReg: false,
             btntext:"null",
             postobj:"",
+            slideIndex: 0,
         }
     },
     componentDidMount: function() {
@@ -37,7 +51,7 @@ const MainContent = React.createClass({
         alert ("Browser does not support HTTP Request")
         return
       }
-      var url="http://127.0.0.1/cirpostgetter.php?ssid=";
+      var url="http://localhost/cirpostgetter.php?ssid=";
       url+=getCookie("ssid");
 
 
@@ -65,6 +79,9 @@ const MainContent = React.createClass({
       xmlHttp.open("GET",url,true);
       xmlHttp.send();
     },
+    handleTabs(value){
+      this.setState({slideIndex: value});
+    },
 
   render() {
 
@@ -75,17 +92,43 @@ const MainContent = React.createClass({
 
 <div style={{height:'61px'}}></div>
 
-  <MyDrawer activeItem="2" />
 
 
-  <div  className="testdiv2">
+
 <div style={{paddingTop:'40px'}}>
   <div id="circleOther">
-   <FriendCard />
-   <div style={{height:'30px'}}></div>
-   <GroupCard />
-   <div style={{height:'30px'}}></div>
-   <MyAtyCard />
+
+
+         <Tabs onChange={this.handleTabs}
+           inkBarStyle={{backgroundColor:'#FFEB3B'}}
+             value={this.state.slideIndex}
+             tabItemContainerStyle={{height:'70px'}}>
+       <Tab
+         label={<div style={{color:'white',zIndex:'999',fontSize:'18px'}}>排行榜</div>}
+         icon={<RankIcon/>}
+         value={0}
+
+       />
+
+     </Tabs>
+
+     <SwipeableViews
+            index={this.state.slideIndex}
+            onChangeIndex={this.handleTabs}
+          >
+
+
+          <div>
+
+             <RankTab />
+
+           </div>
+
+
+
+     </SwipeableViews>
+
+
   </div>
 
   <div id="circleMain" >
@@ -96,7 +139,7 @@ const MainContent = React.createClass({
 
 
 
-</div>
+
 
 </div>
 

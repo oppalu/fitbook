@@ -22,7 +22,7 @@ const FriendCard = React.createClass({
       alert ("Browser does not support HTTP Request")
       return
     }
-    var url="http://127.0.0.1/cirfriendgetter.php?ssid=";
+    var url="http://localhost/cirfriendgetter.php?ssid=";
     url+=getCookie("ssid");
 
     var that=this;

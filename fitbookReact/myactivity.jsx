@@ -22,7 +22,7 @@ const MyAtyCard = React.createClass({
       alert ("Browser does not support HTTP Request")
       return
     }
-    var url="http://127.0.0.1/ciratygetter.php?ssid=";
+    var url="http://localhost/ciratygetter.php?ssid=";
     url+=getCookie("ssid");
 
     var that=this;

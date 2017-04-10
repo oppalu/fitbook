@@ -47,7 +47,7 @@ while($row = $ret->fetchArray(SQLITE3_ASSOC) ){
   $atyid=$row['aid'];
 
 
-  $user=new Aty($title,$atyid);
+  $user=new Aty($title,$atyid,0,0,0,0);
 
   array_push($userarr, $user);
 

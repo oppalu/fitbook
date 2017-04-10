@@ -93,14 +93,14 @@ const PortraitCard = onClickOutside(React.createClass({
                          style={{borderColor:"transparent",borderStyle:"dashed dashed solid",borderWidth:"0 8.5px 8.5px",
                         borderBottomColor:"#fff", position:"absolute",left:8,zIndex:999,height:0,width:0,top:48}}></div>
                 </div>
-                <div style={{zIndex:998,position:"absolute",width:300,height:150,right:5,top:55,outline:"none",color:"#000",lineHeight:"normal",
+                <div style={{zIndex:990,position:"absolute",width:300,height:152,right:5,top:55,outline:"none",color:"#000",lineHeight:"normal",
                     border:"1px solid #ccc",borderColor:"rgba(0,0,0,.2)",boxShadow:"0 2px 10px rgba(0,0,0,.2)",borderRadius:2}}
                     hidden={this.state.isClose} >
-                    <div style={{background:"white",height:70,width:270,padding:15}}>
+                    <div style={{background:"white",height:100,width:300,padding:15}}>
                         <a href={this.state.jumpuser} style={{display:"inline-block",float:"left",cursor: "pointer",textDecoration:"none"}}>
                             <Avatar src={this.state.avatarurl} size={70} style={{border:'1px solid white'}}/>
                         </a>
-                        <div style={{display:"inline-block",marginLeft:10,width:180,verticalAlign:"top"}}>
+                        <div style={{display:"inline-block",marginLeft:10,width:190,verticalAlign:"top"}}>
                             <div style={{fontWeight:"bold"}}>{this.state.username}</div>
                             <div style={{color:"#666"}}>{this.state.email}</div>
                             <span>{this.state.gender}&nbsp;&nbsp;&nbsp;</span>
@@ -112,7 +112,7 @@ const PortraitCard = onClickOutside(React.createClass({
                     </div>
 
                     <div style={{display:"inline-block",borderTop:"1px solid #ccc",borderColor:"rgba(0,0,0,.2)",background:"#f5f5f5",
-                        height:50,width:290,paddingRight:10}}>
+                        height:50,width:300,paddingRight:10}}>
                         <RaisedButton style={{float:"right",marginTop:7}}
                             label="退出登录"
                             href="/">

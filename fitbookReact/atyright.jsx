@@ -19,7 +19,7 @@ import SendIcon from 'material-ui/svg-icons/content/send';
 import Snackbar from 'material-ui/Snackbar';
 
 import { Link } from 'react-router';
-
+   
 
 function removeA(arr) {
     var what, a = arguments, L = a.length, ax;
@@ -79,7 +79,7 @@ const GroupRight = React.createClass({
       alert ("Browser does not support HTTP Request")
       return
     }
-    var url="http://127.0.0.1/atyinviter.php?ssid=";
+    var url="http://localhost/atyinviter.php?ssid=";
     url+=getCookie("ssid");
     url+="&atyid=";
     url+=this.state.atyid;
@@ -124,7 +124,7 @@ const GroupRight = React.createClass({
       alert ("Browser does not support HTTP Request")
       return
     }
-    var url="http://127.0.0.1/atycandidate.php?ssid=";
+    var url="http://localhost/atycandidate.php?ssid=";
     url+=getCookie("ssid");
     url+="&atyid=";
     url+=this.state.atyid;
@@ -172,7 +172,7 @@ const GroupRight = React.createClass({
       alert ("Browser does not support HTTP Request")
       return
     }
-    var url="http://127.0.0.1/atyrightgetter.php?ssid=";
+    var url="http://localhost/atyrightgetter.php?ssid=";
     url+=getCookie("ssid");
     url+="&atyid=";
     url+=this.state.atyid;

@@ -19,6 +19,7 @@ import GroupIcon from 'material-ui/svg-icons/social/people';
 import AtyIcon from 'material-ui/svg-icons/image/assistant-photo';
 import {white,grey50,grey700} from 'material-ui/styles/colors';
 
+
 function isInteger(str) {
     if(/^\d+$/.test(str))
     {
@@ -35,6 +36,7 @@ const Cover = React.createClass({
             isMale:1,
             isSnackerOpen:false,
             username:this.props.username,
+            infoStatus:this.props.infoStatus,
             email:"",
             level:"",
             age:0,
@@ -50,8 +52,65 @@ const Cover = React.createClass({
             uploadavatarname:"",
             infoerrormsg:"",
             isExitDiaShow:false,
-            infoStatus:1
+            right1item:'',
+            right2item:'',
+            right3item:'',
+            right4item:'',
+            icon1:'white',
+            icon2:'white',
+            icon3:'white',
+            icon4:'white',
+
         }
+    },
+    ColorChange() {
+      if(this.state.infoStatus=="right1"){
+          this.setState({right1item: "white"});
+          this.setState({right2item: "#FFA400"});
+          this.setState({right3item: "#FFA400"});
+          this.setState({right4item: "#FFA400"});
+
+          this.setState({icon1: "#FFA400"});
+          this.setState({icon2: "white"});
+          this.setState({icon3: "white"});
+          this.setState({icon4: "white"});
+
+      }else if (this.state.infoStatus=="right2") {
+        this.setState({right2item: "white"});
+        this.setState({right1item: "#FFA400"});
+        this.setState({right3item: "#FFA400"});
+        this.setState({right4item: "#FFA400"});
+
+        this.setState({icon2: "#FFA400"});
+        this.setState({icon1: "white"});
+        this.setState({icon3: "white"});
+        this.setState({icon4: "white"});
+      }else if (this.state.infoStatus=="right3") {
+        this.setState({right3item: "white"});
+        this.setState({right2item: "#FFA400"});
+        this.setState({right1item: "#FFA400"});
+        this.setState({right4item: "#FFA400"});
+
+        this.setState({icon3: "#FFA400"});
+        this.setState({icon2: "white"});
+        this.setState({icon1: "white"});
+        this.setState({icon4: "white"});
+      }else if (this.state.infoStatus=="right4") {
+        this.setState({right4item: "white"});
+        this.setState({right2item: "#FFA400"});
+        this.setState({right3item: "#FFA400"});
+        this.setState({right1item: "#FFA400"});
+
+        this.setState({icon4: "#FFA400"});
+        this.setState({icon2: "white"});
+        this.setState({icon3: "white"});
+        this.setState({icon1: "white"});
+      }
+
+
+
+
+
     },
     handleDetail(s) {
         switch (s) {
@@ -63,6 +122,9 @@ const Cover = React.createClass({
                 break;
             case 3:
                 window.location.href="http://localhost:8080/#/myaty/"+this.state.username;
+                break;
+            case 4:
+                window.location.href="http://localhost:8080/#/mymessage/"+this.state.username;
                 break;
             default:
         }
@@ -123,7 +185,7 @@ const Cover = React.createClass({
         }
 
 
-        var url="http://127.0.0.1/updateuser.php?ssid=";
+        var url="http://localhost/updateuser.php?ssid=";
         url+=getCookie("ssid");
         url+="&name=";
         url+=name;
@@ -134,7 +196,6 @@ const Cover = React.createClass({
 
 
         var that=this;
-
 
         xmlHttp.onreadystatechange=function(){
             // that.setState({btntext: xmlHttp.responseText});
@@ -155,18 +216,12 @@ const Cover = React.createClass({
                     location.reload();
                 }
 
-
-
             }
 
         };
 
         xmlHttp.open("GET",url,true);
         xmlHttp.send();
-
-
-
-
 
     },
     handleMaleChange(event, index, value){
@@ -203,7 +258,7 @@ const Cover = React.createClass({
             alert ("Browser does not support HTTP Request")
             return
         }
-        var url="http://127.0.0.1/friendadddel.php?ssid=";
+        var url="http://localhost/friendadddel.php?ssid=";
         url+=getCookie("ssid");
         url+="&reply=";
         url+=isadd;
@@ -232,7 +287,7 @@ const Cover = React.createClass({
     },
 
     uploadavatar(){
-        var url="http://127.0.0.1/avataruploader.php?ssid=";
+        var url="http://localhost/avataruploader.php?ssid=";
         url+=getCookie("ssid");
         var avatar=document.getElementById('inputavatarfile').files[0];
         var xmlHttp =GetXmlHttpObject();
@@ -257,7 +312,7 @@ const Cover = React.createClass({
         xmlHttp.send(form);
     },
     uploadcover(){
-        var url="http://127.0.0.1/coveruploader.php?ssid=";
+        var url="http://localhost/coveruploader.php?ssid=";
         url+=getCookie("ssid");
         var cover=document.getElementById('inputcoverfile').files[0];
         var xmlHttp =GetXmlHttpObject();
@@ -283,6 +338,7 @@ const Cover = React.createClass({
     },
     componentDidMount: function() {
         this.initData();
+        this.ColorChange();
     },
     initData(){
 
@@ -291,12 +347,10 @@ const Cover = React.createClass({
             alert ("Browser does not support HTTP Request")
             return
         }
-        var url="http://127.0.0.1/leftinfogetter.php?ssid=";
+        var url="http://localhost/leftinfogetter.php?ssid=";
         url+=getCookie("ssid");
         url+="&username=";
         url+=this.state.username;
-
-
 
         var that=this;
         xmlHttp.onreadystatechange=function(){
@@ -416,17 +470,18 @@ const Cover = React.createClass({
                         <scan style={{fontSize:'30px',fontWeight:'600'}}>{this.state.username}</scan>
                         <scan style={{paddingLeft: '25px',fontWeight:'500'}}>等级: {this.state.level}</scan>
                     </div>
-                    <div className="groupintrosub" style={{fontWeight:'500'}}>年龄: {this.state.age}</div>
-                    <div className="groupintrosub" style={{fontWeight:'500'}}>性别: {this.state.gender}</div>
+                    <div className="groupintrosub" style={{fontWeight:'500'}}>年龄: {this.state.age}&nbsp;&nbsp;&nbsp;&nbsp; 性别: {this.state.gender}</div>
                     <div className="groupintrosub" style={{fontWeight:'500'}}>邮箱: {this.state.email}</div>
-                    <Divider/>
+                    <Divider />
 
-                    <List>
-                        <ListItem style={{color: '#ffffff'}} leftIcon={<ModifyIcon color={grey50}/>} primaryText="修改个人资料" onTouchTap={this.handleModify}/>
-                        <Divider/>
-                        <ListItem style={{color: '#ffffff'}} leftIcon={<FriendIcon color={grey50}/>} primaryText="我的好友" onTouchTap={this.handleDetail.bind(this,1)}/>
-                        <ListItem style={{color: '#ffffff'}} leftIcon={<GroupIcon color={grey50}/>} primaryText="我的群组" onTouchTap={this.handleDetail.bind(this,2)}/>
-                        <ListItem style={{color: '#ffffff'}} leftIcon={<AtyIcon color={grey50}/>} primaryText="我的活动" onTouchTap={this.handleDetail.bind(this,3)}/>
+
+                    <List >
+                        <ListItem style={{color: '#ffffff'}} leftIcon={<ModifyIcon color={grey50} />} primaryText="修改个人资料" onTouchTap={this.handleModify}/>
+                        <Divider style={{marginBottom:'7px'}}/>
+                        <ListItem innerDivStyle={{backgroundColor:this.state.right1item}} hoverColor="#FFA400" id="right1"  leftIcon={<FriendIcon color={this.state.icon1} />} primaryText={<span style={{color:this.state.icon1}}>我的好友</span>} onTouchTap={this.handleDetail.bind(this,1)}/>
+                        <ListItem innerDivStyle={{backgroundColor:this.state.right2item}} hoverColor="#FFA400" id="right2"  leftIcon={<GroupIcon color={this.state.icon2} />} primaryText={<span style={{color:this.state.icon2}}>我的群组</span>} onTouchTap={this.handleDetail.bind(this,2)}/>
+                        <ListItem innerDivStyle={{backgroundColor:this.state.right3item}} hoverColor="#FFA400" id="right3"   leftIcon={<AtyIcon color={this.state.icon3} />} primaryText={<span style={{color:this.state.icon3}}>我的活动</span>} onTouchTap={this.handleDetail.bind(this,3)}/>
+                        <ListItem innerDivStyle={{backgroundColor:this.state.right4item}}  hoverColor="#FFA400" id="right4"  leftIcon={<AtyIcon color={this.state.icon4} />} primaryText={<span style={{color:this.state.icon4}}>我的消息</span>} onTouchTap={this.handleDetail.bind(this,4)}/>
                     </List>
 
                     <RaisedButton

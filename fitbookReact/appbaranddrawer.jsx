@@ -117,7 +117,7 @@ const AandD = React.createClass({
 
     doupload(){
       var f=document.getElementById("inputfile").files[0];
-      var url="http://127.0.0.1/fileuploader.php?ssid=";
+      var url="http://localhost/fileuploader.php?ssid=";
       url+=getCookie("ssid");
 
       var xmlHttp =GetXmlHttpObject();
@@ -156,7 +156,7 @@ const AandD = React.createClass({
         alert ("Browser does not support HTTP Request")
         return
       }
-      var url="http://127.0.0.1/appbargetter.php?ssid=";
+      var url="http://localhost/appbargetter.php?ssid=";
       url+=getCookie("ssid");
       var that=this;
       xmlHttp.onreadystatechange=function(){

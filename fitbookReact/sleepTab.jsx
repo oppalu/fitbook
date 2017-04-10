@@ -44,7 +44,7 @@ const SleepTab = React.createClass({
         alert ("Browser does not support HTTP Request")
         return
       }
-      var url="http://127.0.0.1/sleepgetter.php?ssid=";
+      var url="http://localhost/sleepgetter.php?ssid=";
       url+=getCookie("ssid");
 
       var that=this;

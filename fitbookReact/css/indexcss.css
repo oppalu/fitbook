@@ -8,6 +8,48 @@
   src: url('/assets/Font/Economica-Regular.ttf');
 }
 
+
+
+
+.statssub1{
+  font-family: NumberFont;
+  font-size: 50px;
+  color: #00ACC1;
+  display: inline-block;
+
+}
+
+#discoverLeft{
+    display:inline-block;
+    width:25%;
+    margin-left:8%;
+}
+
+.discover{
+
+    display:inline-block;
+    width: 30%;
+    vertical-align:top;
+    margin-left: 5%;
+
+}
+
+.discover_grp{
+
+    color:#5A5A5A;
+    display:inline-block;
+    width:30%;
+    margin-bottom: 10px;
+}
+
+.discover_aty{
+    color:#5A5A5A;
+    display:inline-block;
+    width:30%;
+    margin-bottom: 10px;
+}
+
+
 .Navtitle{
   font-size: 17px;
 color: #FAFAFA;
@@ -15,6 +57,19 @@ color: #FAFAFA;
 
 .NavtitleInv{
   font-size: 20px;
+color: #00c1d7;
+}
+
+.NavItem{
+  display: inline-block;
+}
+
+.NavItem:hover{
+
+  background-color: white;
+}
+
+.NavItem:hover .Navtitle{
 color: #00c1d7;
 }
 
@@ -95,10 +150,11 @@ to {left:180px;}
 
 .testdiv{
   position: relative;
-  left:290px;
+  /*left:290px;*/
   background-color: white;
-  width: 78%;
-  height: 1500px;
+  width: 80%;
+    margin-left: 17%;
+  height: auto;
   display: inline-block;
   vertical-align: top;
 }
@@ -235,6 +291,8 @@ margin-left:50px;
 vertical-align:top;
 }
 
+
+
 .quanzi{
   margin-top:100px;
   color:#5A5A5A;
@@ -289,8 +347,8 @@ vertical-align:top;
 
 .rightcover{
 display:inline-block;
-margin-left:34%;
-width:60%;
+margin-left:23%;
+width:70%;
 }
 
 
@@ -346,8 +404,9 @@ margin-top:8px;
 
 #indexbg{
   background-color:#00c1d7;
-  height:500px;
+  height:422px;
   vertical-align: top;
+
 }
 #indexbgblock1{
   width:50%;
@@ -357,7 +416,7 @@ margin-top:8px;
 #indexbgbigicon{
   width:250px;
   margin-left:20%;
-  margin-top:50px
+  margin-top:30px
 }
 #indexintro{
   color:white;
@@ -374,14 +433,15 @@ margin-top:8px;
 
 
 #indexbgpic{
-  height:500px;
+  height:422px;
   padding-left:15%
 }
 
 #indexsubtitle{
-  font-size:55px;
-  margin-top:100px;
+  font-size:40px;
+  margin-top:14px;
   text-align:center;
+  margin-bottom: 14px
 }
 
 #AButton{
@@ -395,25 +455,25 @@ margin-top:8px;
   float:left
 }
 .indexsubtext{
-  margin-top:15px
+  margin-top:10px
 }
 
 #indexsubblock{
-  height:300px;
+  height:230px;
   vertical-align:top;
-  margin-top:70px
+  margin-top:5px
 }
 
 
 .myfootbar{
-  height:80px;
+  height:40px;
   background-color:#eeeeee;
 }
 
 
 #mylink{
   float:right;
-  margin-top:20px;
+  margin-top:1px;
   cursor:pointer;
 }
 
@@ -425,7 +485,8 @@ margin-top:8px;
 }
 #footblueicon{
   margin-left:20px;
-  margin-top:5px
+  margin-top:-5px;
+  height:50px
 }
 
 
@@ -583,7 +644,7 @@ margin-left: 33%;
     #indexbgbigicon{
       width:250px;
       margin-left:18%;
-      margin-top:50px;
+      margin-top:10px;
     }
     #indexbgblock1{
       display:block;
@@ -600,7 +661,7 @@ margin-left: 33%;
       display: block;
     }
     .swipeheadHome{
-      margin-top: 40px;
+        margin-top: 50px;
     }
     .centercircle{
       height: 220px;

@@ -1,0 +1,27 @@
+{
+"userid":1,
+"date":"2016-12-04",
+"sleepdata":{
+  "gotobedTime":"23:54",
+  "getUpTime":"08:02",
+  "deeptime":250,
+  "lighttime":240
+},
+"walkdata":{
+  "steps":5678,
+  "distance":2.8,
+  "duration":150
+},
+"rundata":{
+  "distance":9.34,
+  "duration":68,
+  "speed":4.1,
+  "maxspeed":13.02
+},
+"ridedata":{
+  "distance":9.34,
+  "duration":23,
+  "speed":4.1,
+  "maxspeed":13.02
+}
+}

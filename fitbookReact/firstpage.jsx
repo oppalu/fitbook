@@ -62,7 +62,7 @@ const MainContent = React.createClass({
         alert ("Browser does not support HTTP Request")
         return
       }
-      var url="http://127.0.0.1/addsession.php?ssid=";
+      var url="http://127.0.0.1:80/fitbook/addsession.php?ssid=";
       url+=ssholder.getsession();
 
 
@@ -100,64 +100,64 @@ const MainContent = React.createClass({
 <div>
 
   <AandD id="0" />
-    <div style={{height:'70px'}}></div>
+    <div style={{height:'30px'}}></div>
 
 
 
 
-    <MyDrawer activeItem="1" />
+    {/*<MyDrawer activeItem="1" />*/}
 
   <div  className="testdiv">
 
-    <div style={{display:'inline-block',width:'690px'}}>
+    <div style={{display:'inline-block',width:'100%',height:'1100px'}}>
       <IndexSleepCard />
       <IndexWalkCard />
       <IndexRunCard />
       <IndexRideCard />
     </div>
 
-    <div style={{display:'inline-block',width:'26%',verticalAlign:'top',marginTop:'23px',marginLeft:'20px'}}>
+    {/*<div style={{display:'inline-block',width:'26%',verticalAlign:'top',marginTop:'23px',marginLeft:'20px'}}>*/}
 
- <Paper zDepth={1}>
-      <Tabs onChange={this.handleTabs}
-          value={this.state.slideIndex}>
-    <Tab
-      label="排名"
-      icon={<RankIcon/>}
-      value={0}
+ {/*<Paper zDepth={1}>*/}
+      {/*<Tabs onChange={this.handleTabs}*/}
+          {/*value={this.state.slideIndex}>*/}
+    {/*<Tab*/}
+      {/*label="排名"*/}
+      {/*icon={<RankIcon/>}*/}
+      {/*value={0}*/}
 
-    />
-    <Tab
-      icon={<HotIcon/>}
-      label="热门"
-      value={1}
-    />
-  </Tabs>
+    {/*/>*/}
+    {/*<Tab*/}
+      {/*icon={<HotIcon/>}*/}
+      {/*label="热门"*/}
+      {/*value={1}*/}
+    {/*/>*/}
+  {/*</Tabs>*/}
 
-  <SwipeableViews
-         index={this.state.slideIndex}
-         onChangeIndex={this.handleTabs}
-       >
-
-
-       <div>
-
-          <RankTab />
-
-        </div>
+  {/*<SwipeableViews*/}
+         {/*index={this.state.slideIndex}*/}
+         {/*onChangeIndex={this.handleTabs}*/}
+       {/*>*/}
 
 
+       {/*<div>*/}
 
-        <div >
-          <RankTab />
-        </div>
+          {/*<RankTab />*/}
+
+        {/*</div>*/}
 
 
 
-  </SwipeableViews>
-</Paper>
+        {/*<div >*/}
+          {/*<RankTab />*/}
+        {/*</div>*/}
 
-    </div>
+
+
+  {/*</SwipeableViews>*/}
+{/*</Paper>*/}
+
+    {/*</div>*/}
 
 
 

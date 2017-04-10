@@ -1,0 +1,43 @@
+.sleepDiv{
+    display:inline-block;
+    width:30%;
+    border-right:1px solid #d5d5d5;
+    text-align:center;
+    cursor: pointer;
+    /*color:#666666;*/
+    text-decoration: none;
+}
+
+.labelSpan{
+    color:#999999;
+    /*color:inherit;*/
+    font-size:16px;
+}
+/*.labelSpan:hover{*/
+    /*color:#0096ff;*/
+/*}*/
+/*.labelSpan:hover .contentSpan{*/
+    /*color:#0096ff;*/
+/*}*/
+/*.labelSpan:active{*/
+    /*color:#748fd1;*/
+/*}*/
+/*.labelSpan:active .contentSpan{*/
+    /*color:#748fd1;*/
+/*}*/
+
+.contentSpan{
+    color:#666666;
+    /*color:inherit;*/
+    font-size:18px;
+}
+
+.sleepDiv:hover{
+    background-color: rgba(0,0,0,0.1);
+}
+/*.sleepDiv:hover .contentSpan{*/
+    /*color:#0096ff;*/
+/*}*/
+/*.sleepDiv:hover .labelSpan {*/
+    /*color:#0096ff;*/
+/*}*/

@@ -245,22 +245,22 @@ const MyAwesomeReactComponent = React.createClass({
 
          <div id="indexsubblock">
                  <div id="indexsubintroFirst">
-                   <embed src="assets/smartphone.svg" width="100" height="100" />
+                   <embed src="assets/smartphone.svg" width="85" height="85" />
                    <div className="indexsubtext">基于移动设备</div><div>收集你的运动数据</div>
                  </div>
 
                  <div className="indexsubintro">
-                     <embed src="assets/data.svg" width="100" height="100" />
+                     <embed src="assets/data.svg" width="85" height="85" />
                    <div className="indexsubtext">分析运动数据</div><div>合理规划运动计划</div>
                  </div>
 
                  <div className="indexsubintro">
-                   <embed src="assets/horn.svg" width="100" height="100" />
+                   <embed src="assets/horn.svg" width="85" height="85" />
                    <div className="indexsubtext">发布活动</div><div>与好友一起运动</div>
                  </div>
 
                  <div className="indexsubintro">
-                   <embed src="assets/network.svg" width="100" height="100" />
+                   <embed src="assets/network.svg" width="85" height="85" />
                    <div className="indexsubtext">在运动中</div><div>结识新的朋友</div>
                  </div>
 

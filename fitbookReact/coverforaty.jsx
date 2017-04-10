@@ -67,7 +67,7 @@ const Cover = React.createClass({
       return
     }
 
-    var url="http://127.0.0.1/atyinandout.php?ssid=";
+    var url="http://localhost/atyinandout.php?ssid=";
     url+=getCookie("ssid");
     url+="&atyid=";
     url+=this.state.atyid;
@@ -222,7 +222,7 @@ const Cover = React.createClass({
 
     var pstarttime=startdate+" "+starttime;
     var pendtime=enddate+" "+endtime;
-    var url="http://127.0.0.1/atychanger.php?ssid=";
+    var url="http://localhost/atychanger.php?ssid=";
     url+=getCookie("ssid");
     url+="&coin=";
     url+=coin;
@@ -290,7 +290,7 @@ const Cover = React.createClass({
       alert ("Browser does not support HTTP Request")
       return
     }
-    var url="http://127.0.0.1/atydeleter.php?atyid=";
+    var url="http://localhost/atydeleter.php?atyid=";
     url+=this.state.atyid;
     url+="&ssid=";
     url+=getCookie("ssid");
@@ -343,7 +343,7 @@ const Cover = React.createClass({
       alert ("Browser does not support HTTP Request")
       return
     }
-    var url="http://127.0.0.1/atyinfogetter.php?atyid=";
+    var url="http://localhost/atyinfogetter.php?atyid=";
     url+=this.state.atyid;
     url+="&ssid=";
     url+=getCookie("ssid");

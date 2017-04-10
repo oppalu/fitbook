@@ -13,6 +13,8 @@ import MyGroup from './mygroup.jsx';
 
 import MyAty from './myaty.jsx';
 
+import MyMessage from './message.jsx';
+
 import Stats from './stat.jsx';
 
 import Search from './searchres.jsx';
@@ -30,40 +32,40 @@ import NotFound from './404.jsx';
 
 import PostManage from './postmanage.jsx';
 
-
+import AtyAll from './discover.jsx';
 
 
 injectTapEventPlugin();
 const AppT = () => (
-  <MuiThemeProvider>
-    <MyAwesomeReactComponent />
-  </MuiThemeProvider>
+    <MuiThemeProvider>
+        <MyAwesomeReactComponent />
+    </MuiThemeProvider>
 );
 
 
 const MainContent = () => (
-  <MuiThemeProvider>
-    <Contents  />
-  </MuiThemeProvider>
+    <MuiThemeProvider>
+        <Contents  />
+    </MuiThemeProvider>
 );
 
 
 const CircleContent= () => (
-  <MuiThemeProvider>
-    <Circle  />
-  </MuiThemeProvider>
+    <MuiThemeProvider>
+        <Circle  />
+    </MuiThemeProvider>
 );
 
 
 
 const MyInfoContent=React.createClass({
-  render() {
-    return (
-      <MuiThemeProvider>
-        <MyInfo  username={this.props.params.username}/>
-      </MuiThemeProvider>
-    );
-  }
+    render() {
+        return (
+            <MuiThemeProvider>
+                <MyInfo  username={this.props.params.username}/>
+            </MuiThemeProvider>
+        );
+    }
 });
 
 const MyGroupContent=React.createClass({
@@ -86,81 +88,105 @@ const MyAtyContent=React.createClass({
     }
 });
 
+const MyMessageContent=React.createClass({
+    render() {
+        return (
+            <MuiThemeProvider>
+                <MyMessage  username={this.props.params.username}/>
+            </MuiThemeProvider>
+        );
+    }
+});
+
 const StatsContent=React.createClass({
-  render() {
-    return (
-      <MuiThemeProvider>
-        <Stats  page={this.props.params.page}/>
-      </MuiThemeProvider>
-    );
-  }
+    render() {
+        return (
+            <MuiThemeProvider>
+                <Stats  page={this.props.params.page}/>
+            </MuiThemeProvider>
+        );
+    }
 });
 
 
 const SearchContent=React.createClass({
-  render() {
-    return (
-      <MuiThemeProvider>
-        <Search  keyword={this.props.params.keyword}/>
-      </MuiThemeProvider>
-    );
-  }
+    render() {
+        return (
+            <MuiThemeProvider>
+                <Search  keyword={this.props.params.keyword}/>
+            </MuiThemeProvider>
+        );
+    }
 });
 
 
 
 
 const GroupContent= () => (
-  <MuiThemeProvider>
-    <GroupInfo  />
-  </MuiThemeProvider>
+    <MuiThemeProvider>
+        <GroupInfo  />
+    </MuiThemeProvider>
 );
 
 
 const AtyContent=React.createClass({
-  render() {
-    return (
-      <MuiThemeProvider>
-        <AtyInfo  atyid={this.props.params.atyid}/>
-      </MuiThemeProvider>
-    );
-  }
+    render() {
+        return (
+            <MuiThemeProvider>
+                <AtyInfo  atyid={this.props.params.atyid}/>
+            </MuiThemeProvider>
+        );
+    }
 });
 
 
 const FourZeroFourContent= () => (
-  <MuiThemeProvider>
-    <NotFound  />
-  </MuiThemeProvider>
+    <MuiThemeProvider>
+        <NotFound  />
+    </MuiThemeProvider>
 );
 const PostManageContent= () => (
-  <MuiThemeProvider>
-    <PostManage  />
-  </MuiThemeProvider>
+    <MuiThemeProvider>
+        <PostManage  />
+    </MuiThemeProvider>
 );
 
 const ManageContent= () => (
-  <MuiThemeProvider>
-    <Man  />
-  </MuiThemeProvider>
+    <MuiThemeProvider>
+        <Man  />
+    </MuiThemeProvider>
 );
 
 
-ReactDOM.render((
-  <Router history={hashHistory}>
-    <Route path="/" component={AppT}/>
-    <Route path="/about" component={MainContent}/>
-    <Route path="/circle" component={CircleContent}/>
-    <Route path="/myinfo(/:username)" component={MyInfoContent}/>
-      <Route path="/mygroup(/:username)" component={MyGroupContent}/>
-      <Route path="/myaty(/:username)" component={MyAtyContent}/>
-    <Route path="/stats(/:page)"  component={StatsContent}/>
 
-    <Route path="/search(/:keyword)" component={SearchContent}/>
-    <Route path="/groupinfo" component={GroupContent}/>
-    <Route path="/atyinfo(/:atyid)" component={AtyContent}/>
-    <Route path="/postmanage" component={PostManageContent}/>
-    <Route path="/manage" component={ManageContent}/>
-    <Route path="*" component={FourZeroFourContent}/>
-  </Router>
+
+const AtyAllContent=React.createClass({
+    render() {
+        return (
+            <MuiThemeProvider>
+                <AtyAll />
+                </MuiThemeProvider>
+              );
+    }
+});
+
+ReactDOM.render((
+    <Router history={hashHistory}>
+        <Route path="/" component={AppT}/>
+        <Route path="/about" component={MainContent}/>
+        <Route path="/circle" component={CircleContent}/>
+        <Route path="/myinfo(/:username)" component={MyInfoContent}/>
+        <Route path="/mygroup(/:username)" component={MyGroupContent}/>
+        <Route path="/myaty(/:username)" component={MyAtyContent}/>
+        <Route path="/mymessage(/:username)" component={MyMessageContent}/>
+        <Route path="/stats(/:page)"  component={StatsContent}/>
+          <Route path="/atyall"  component={AtyAllContent}/>
+
+        <Route path="/search(/:keyword)" component={SearchContent}/>
+        <Route path="/groupinfo" component={GroupContent}/>
+        <Route path="/atyinfo(/:atyid)" component={AtyContent}/>
+        <Route path="/postmanage" component={PostManageContent}/>
+        <Route path="/manage" component={ManageContent}/>
+        <Route path="*" component={FourZeroFourContent}/>
+    </Router>
 ), document.getElementById('app'))

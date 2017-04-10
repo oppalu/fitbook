@@ -225,7 +225,7 @@ const MyInfo = React.createClass({
 
     var pstarttime=startdate+" "+starttime;
     var pendtime=enddate+" "+endtime;
-    var url="http://127.0.0.1/atycreator.php?ssid=";
+    var url="http://localhost/atycreator.php?ssid=";
     url+=getCookie("ssid");
     url+="&coin=";
     url+=coin;
@@ -292,7 +292,7 @@ const MyInfo = React.createClass({
       alert ("Browser does not support HTTP Request")
       return
     }
-    var url="http://127.0.0.1/namechecker.php?ssid=";
+    var url="http://localhost/namechecker.php?ssid=";
     url+=getCookie("ssid");
     var that=this;
     xmlHttp.onreadystatechange=function(){
@@ -377,7 +377,7 @@ const MyInfo = React.createClass({
           <AandD id="2" />
 
 <div className="wholecover" >
-         <Cover username={this.state.username}/>
+         <Cover username={this.state.username} infoStatus="right3"/>
 </div>
 <div className="rightcover">
          <CoverAty username={this.state.username}/>
